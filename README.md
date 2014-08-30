@@ -15,21 +15,18 @@ version 1.0
 
 <p>Here are some screenshots:</p>
 <p style='font-size: 40px;'><b>iPad</b></p>
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot01Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot02Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot03Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot04Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot05Ipad.png' alt='DRColorPicker Screenshot'
-width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot06Ipad.png' alt='DRColorPicker Screenshot'
-width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot01Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot02Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot03Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot04Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot05Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot06Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
 <br/><br/><br/>
 <p style='font-size: 40px;'><b>iPhone</b></p>
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot1.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot2.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot3.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot4.png' alt='DRColorPicker Screenshot' width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot5.png' alt='DRColorPicker Screenshot'
-width='320px' />
-<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot6.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot1.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot2.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot3.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot4.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot5.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot6.png' alt='DRColorPicker Screenshot' width='320px' />
 </body>
