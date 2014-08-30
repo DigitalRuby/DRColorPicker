@@ -60,10 +60,19 @@
 //    DRColorPickerThumbnailSizeInPointsPhone = 44.0f; // default is 42
 //    DRColorPickerThumbnailSizeInPointsPad = 44.0f; // default is 54
 
+    // background color of each view
     DRColorPickerBackgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+
+    // border color of the color thumbnails
     DRColorPickerBorderColor = [UIColor blackColor];
+
+    // font for any labels in the color picker
     DRColorPickerFont = [UIFont systemFontOfSize:16.0f];
+
+    // font color for labels in the color picker
     DRColorPickerLabelColor = [UIColor blackColor];
+
+    // max number of colors in the recent and favorites
     DRColorPickerStoreMaxColors = 200;
 
     // create the color picker
@@ -76,7 +85,7 @@
     // in addition to the default images, you can set the images for a light or dark navigation bar / toolbar theme, these are built-in to the color picker bundle
     if (theme == 0)
     {
-        // setting these to nil tells it to use the built-in default images
+        // setting these to nil (the default) tells it to use the built-in default images
         vc.rootViewController.addToFavoritesImage = nil;
         vc.rootViewController.favoritesImage = nil;
         vc.rootViewController.hueImage = nil;
