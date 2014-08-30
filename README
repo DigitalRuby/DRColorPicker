@@ -1,0 +1,31 @@
+**Digital Ruby, LLC Color Picker**
+
+version 1.0
+
+I'm Jeff Johnson (@jjxtra) and I created DRColorPicker to use in my app [You Doodle for iOS](http://bit.ly/YouDoodleApp).
+
+In order to give back to the community, I have open sourced this color picker under the MIT license.
+
+DRColorPicker is a world class color picker for iOS and supports any resolution, portrait and landscape, and works on iPhone and iPad. This repository contains an example project that shows you how to use the color picker. Colors and textures can be picked and are saved efficiently in a JSON file, along with JPEG-2000 or PNG for textures. Texture de-duplication ensures that different alpha versions of a texture only create one file.
+
+To use the color picker in your project, simply add the DRColorPicker folder to your iOS project.
+
+Here are some screenshots:
+
+**iPad**
+
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot01Ipad.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot02Ipad.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot03Ipad.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot04Ipad.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot05Ipad.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot06Ipad.png)
+
+**iPhone**
+
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot1.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot2.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot3.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot4.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot5.png)
+![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot6.png)
