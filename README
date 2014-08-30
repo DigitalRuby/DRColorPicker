@@ -1,31 +1,35 @@
-**Digital Ruby, LLC Color Picker**
+<html>
+<head></head>
+<body>
+<b>Digital Ruby, LLC Color Picker</b>
 
 version 1.0
 
-I'm Jeff Johnson (@jjxtra) and I created DRColorPicker to use in my app [You Doodle for iOS](http://bit.ly/YouDoodleApp).
+<p>I'm Jeff Johnson (@jjxtra) and I created DRColorPicker to use in my app <a href='http://bit.ly/YouDoodleApp'>You Doodle for iOS</a>.</p>
 
-In order to give back to the community, I have open sourced this color picker under the MIT license.
+<p>In order to give back to the community, I have open sourced this color picker under the MIT license.</p>
 
-DRColorPicker is a world class color picker for iOS and supports any resolution, portrait and landscape, and works on iPhone and iPad. This repository contains an example project that shows you how to use the color picker. Colors and textures can be picked and are saved efficiently in a JSON file, along with JPEG-2000 or PNG for textures. Texture de-duplication ensures that different alpha versions of a texture only create one file.
+<p>DRColorPicker is a world class color picker for iOS and supports any resolution, portrait and landscape, and works on iPhone and iPad. This repository contains an example project that shows you how to use the color picker. Colors and textures can be picked and are saved efficiently in a JSON file, along with JPEG-2000 or PNG for textures. Texture de-duplication ensures that different alpha versions of a texture only create one file.</p>
 
-To use the color picker in your project, simply add the DRColorPicker folder to your iOS project.
+<p>To use the color picker in your project, simply add the DRColorPicker folder to your iOS project.</p>
 
-Here are some screenshots:
-
-**iPad**
-
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot01Ipad.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot02Ipad.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot03Ipad.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot04Ipad.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot05Ipad.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot06Ipad.png)
-
-**iPhone**
-
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot1.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot2.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot3.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot4.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot5.png)
-![DRColorPicker Screenshot](https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot6.png)
+<p>Here are some screenshots:</p>
+<p style='font-size: 40px;'><b>iPad</b></p>
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot01Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot02Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot03Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot04Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot05Ipad.png' alt='DRColorPicker Screenshot'
+width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot06Ipad.png' alt='DRColorPicker Screenshot'
+width='320px' />
+<br/><br/><br/>
+<p style='font-size: 40px;'><b>iPhone</b></p>
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot1.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot2.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot3.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot4.png' alt='DRColorPicker Screenshot' width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot5.png' alt='DRColorPicker Screenshot'
+width='320px' />
+<img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshot6.png' alt='DRColorPicker Screenshot' width='320px' />
+</body>
