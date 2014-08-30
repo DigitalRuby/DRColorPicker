@@ -30,6 +30,8 @@
 
 #import "DRColorPicker.h"
 
+CGFloat DRColorPickerThumbnailSizeInPointsPhone = 42.0f;
+CGFloat DRColorPickerThumbnailSizeInPointsPad = 54.0f;
 UIFont* DRColorPickerFont;
 UIColor* DRColorPickerLabelColor;
 UIColor* DRColorPickerBackgroundColor;

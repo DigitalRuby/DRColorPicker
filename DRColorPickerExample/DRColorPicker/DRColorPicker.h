@@ -31,6 +31,12 @@
 #import <Foundation/Foundation.h>
 #import "DRColorPickerViewController.h"
 
+// size of each individual color in points on iPhone, default is 42
+extern CGFloat DRColorPickerThumbnailSizeInPointsPhone;
+
+// size of each individual color in points on iPad, default is 54
+extern CGFloat DRColorPickerThumbnailSizeInPointsPad;
+
 // font to use for the color picker
 extern UIFont* DRColorPickerFont;
 

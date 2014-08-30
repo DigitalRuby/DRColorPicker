@@ -57,6 +57,9 @@
 - (IBAction)showColorPickerButtonTapped:(id)sender
 {
     // Setup the color picker - this only has to be done once, but can be called again and again if the values need to change while the app runs
+//    DRColorPickerThumbnailSizeInPointsPhone = 44.0f; // default is 42
+//    DRColorPickerThumbnailSizeInPointsPad = 44.0f; // default is 54
+
     DRColorPickerBackgroundColor = [UIColor lightGrayColor];
     DRColorPickerBorderColor = [UIColor blackColor];
     DRColorPickerFont = [UIFont systemFontOfSize:16.0f];

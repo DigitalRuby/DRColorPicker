@@ -61,7 +61,8 @@ static CGFloat s_thumbnailSizePoints;
     if (self == DRColorPickerStore.class)
     {
         s_instance = [[DRColorPickerStore alloc] initAsSingleton];
-        s_thumbnailSizePixels = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? (UIScreen.mainScreen.scale * 54.0f) : (UIScreen.mainScreen.scale * 44.0f));
+
+        s_thumbnailSizePixels = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? (UIScreen.mainScreen.scale * DRColorPickerThumbnailSizeInPointsPad) : (UIScreen.mainScreen.scale * DRColorPickerThumbnailSizeInPointsPhone));
         s_thumbnailSizePoints = s_thumbnailSizePixels / UIScreen.mainScreen.scale;
     }
 }
