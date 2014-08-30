@@ -19,7 +19,7 @@ version 1.0
 <li>State is saved and loaded automatically to / from a JSON file, textures are saved to files</li>
 <li>Textures can be stored in JPEG 2000 (default) or PNG</li>
 <li>Texture de-duplication ensures that only one version of each texture is stored</li>
-<li>Favorites can be managed by long-tapping on a color.</p>
+<li>Favorites can be managed by long-tapping on a color</p>
 <li>Imports colors from the NEO Color Picker automatically</li>
 </ul>
 
