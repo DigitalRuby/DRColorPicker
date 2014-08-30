@@ -60,7 +60,7 @@
 //    DRColorPickerThumbnailSizeInPointsPhone = 44.0f; // default is 42
 //    DRColorPickerThumbnailSizeInPointsPad = 44.0f; // default is 54
 
-    DRColorPickerBackgroundColor = [UIColor lightGrayColor];
+    DRColorPickerBackgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     DRColorPickerBorderColor = [UIColor blackColor];
     DRColorPickerFont = [UIFont systemFontOfSize:16.0f];
     DRColorPickerLabelColor = [UIColor blackColor];
