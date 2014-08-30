@@ -21,6 +21,7 @@ version 1.0
 <li>Texture de-duplication ensures that only one version of each texture is stored</li>
 <li>Favorites can be managed by long-tapping on a color</li>
 <li>Imports colors from the NEO Color Picker automatically</li>
+<li>Localized into most languages</li>
 </ul>
 
 <p>Requirements:</p>
