@@ -9,7 +9,7 @@ version 1.0
 
 <p>In order to give back to the community, I have open sourced this color picker under the MIT license.</p>
 
-<p>DRColorPicker is a world class color picker for iOS and supports any resolution, portrait and landscape, and works on iPhone and iPad. This repository contains an example project that shows you how to use the color picker. Colors and textures can be picked and are saved efficiently in a JSON file, along with JPEG-2000 or PNG for textures. Texture de-duplication ensures that different alpha versions of a texture only create one file.</p>
+<p>DRColorPicker is a world class color picker for iOS and supports any resolution, portrait and landscape, and works on iPhone and iPad. Colors and textures can be picked and are saved efficiently in a JSON file, along with JPEG-2000 or PNG for textures. Texture de-duplication ensures that different alpha versions of a texture only create one file. Favorites can be managed by long-tapping on a color.</p>
 
 <p>To use the color picker in your project, simply add the DRColorPickerExample/DRColorPicker folder to your iOS project. The DRColorPickerExample folder contains a sample project with a view controller that will show you how to setup and display the color picker.</p>
 
