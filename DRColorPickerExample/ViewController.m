@@ -102,6 +102,7 @@
 
     // make an import block, this allows using images as colors, this import block uses the UIImagePickerController,
     // but in You Doodle for iOS, I have a more complex import that allows importing from many different sources
+    // *** Leave this as nil to not allowing import of textures ***
     vc.rootViewController.importBlock = ^(UINavigationController* navVC, DRColorPickerHomeViewController* rootVC, NSString* title)
     {
         UIImagePickerController* p = [[UIImagePickerController alloc] init];

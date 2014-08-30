@@ -9,7 +9,26 @@ version 1.0
 
 <p>In order to give back to the community, I have open sourced this color picker under the MIT license.</p>
 
-<p>DRColorPicker is a world class color picker for iOS and supports any resolution, portrait and landscape, and works on iPhone and iPad. Colors and textures can be picked and are saved efficiently in a JSON file, along with JPEG-2000 or PNG for textures. Texture de-duplication ensures that different alpha versions of a texture only create one file. Favorites can be managed by long-tapping on a color.</p>
+<p>DRColorPicker is a world class color picker for iOS. Here is a list of the features:</p>
+
+<ul>
+<li>Supports any resolution, portrait and landscape, and works on iPhone and iPad</li>
+<li>Allows favorite colors, recent colors, colors by hue, color wheel or import of texture</li>
+<li>Color wheel shows the RGB color and allows changing the color by typing an RGB value</li>
+<li>Alpha of color can be changed</li>
+<li>State is saved and loaded automatically to / from a JSON file, textures are saved to files</li>
+<li>Textures can be stored in JPEG 2000 (default) or PNG</li>
+<li>Texture de-duplication ensures that only one version of each texture is stored</li>
+<li>Favorites can be managed by long-tapping on a color.</p>
+<li>Imports colors from the NEO Color Picker automatically</li>
+</ul>
+
+<p>Requirements:</p>
+<ul>
+<li>iOS 6 or greater</li>
+<li>ARC enabled for the color picker source code</li>
+<li>Modules enabled for the project (i.e. @import ...)</li>
+</ul>
 
 <p>To use the color picker in your project, simply add the DRColorPickerExample/DRColorPicker folder to your iOS project. The DRColorPickerExample folder contains a sample project with a view controller that will show you how to setup and display the color picker.</p>
 
