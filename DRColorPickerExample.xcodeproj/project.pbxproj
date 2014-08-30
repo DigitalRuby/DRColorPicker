@@ -31,7 +31,7 @@
 		EC60581819B161960000FC23 /* DRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580319B161960000FC23 /* DRColorPickerViewController.m */; };
 		EC60581919B161960000FC23 /* DRColorPickerWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580519B161960000FC23 /* DRColorPickerWheelView.m */; };
 		EC60581A19B161960000FC23 /* DRColorPickerWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */; };
-		EC60589B19B16BE90000FC23 /* README in Resources */ = {isa = PBXBuildFile; fileRef = EC60589A19B16BE90000FC23 /* README */; };
+		EC60589D19B16F830000FC23 /* README in Resources */ = {isa = PBXBuildFile; fileRef = EC60589C19B16F830000FC23 /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +92,7 @@
 		EC60580519B161960000FC23 /* DRColorPickerWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelView.m; sourceTree = "<group>"; };
 		EC60580619B161960000FC23 /* DRColorPickerWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelViewController.h; sourceTree = "<group>"; };
 		EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelViewController.m; sourceTree = "<group>"; };
-		EC60589A19B16BE90000FC23 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		EC60589C19B16F830000FC23 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +134,7 @@
 		EC6057C019B161790000FC23 /* DRColorPickerExample */ = {
 			isa = PBXGroup;
 			children = (
+				EC60589C19B16F830000FC23 /* README */,
 				EC6057E419B161960000FC23 /* DRColorPicker */,
 				EC6057C519B161790000FC23 /* AppDelegate.h */,
 				EC6057C619B161790000FC23 /* AppDelegate.m */,
@@ -142,7 +143,6 @@
 				EC6057CB19B161790000FC23 /* Main.storyboard */,
 				EC6057CE19B161790000FC23 /* Images.xcassets */,
 				EC6057C119B161790000FC23 /* Supporting Files */,
-				EC60589A19B16BE90000FC23 /* README */,
 			);
 			path = DRColorPickerExample;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC60589B19B16BE90000FC23 /* README in Resources */,
+				EC60589D19B16F830000FC23 /* README in Resources */,
 				EC60580A19B161960000FC23 /* DRColorPicker.bundle in Resources */,
 				EC6057CD19B161790000FC23 /* Main.storyboard in Resources */,
 				EC6057CF19B161790000FC23 /* Images.xcassets in Resources */,
@@ -530,6 +530,7 @@
 				EC6057E019B1617A0000FC23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC6057E119B1617A0000FC23 /* Build configuration list for PBXNativeTarget "DRColorPickerExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +539,7 @@
 				EC6057E319B1617A0000FC23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
