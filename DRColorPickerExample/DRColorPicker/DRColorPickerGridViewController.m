@@ -31,6 +31,7 @@
 #import "DRColorPickerGridViewController.h"
 #import "DRColorPickerStore.h"
 #import "DRColorPickerHomeViewController.h"
+#import "DRColorPicker.h"
 
 @interface DRColorPickerGridViewController () <UIActionSheetDelegate>
 

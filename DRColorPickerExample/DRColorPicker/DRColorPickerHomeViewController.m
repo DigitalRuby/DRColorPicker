@@ -36,6 +36,7 @@
 #import "DRColorPickerStore.h"
 #import "DRColorPickerGridViewController.h"
 #import "DRColorPickerHomeView.h"
+#import "DRColorPicker.h"
 
 @interface DRColorPickerHomeViewController ()
 

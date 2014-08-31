@@ -31,6 +31,7 @@
 #import "DRColorPickerWheelViewController.h"
 #import "DRColorPickerWheelView.h"
 #import "DRColorPickerHomeViewController.h"
+#import "DRColorPicker.h"
 
 @interface DRColorPickerWheelViewController ()
 

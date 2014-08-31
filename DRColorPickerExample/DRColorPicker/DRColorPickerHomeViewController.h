@@ -31,9 +31,6 @@
 #import <UIKit/UIKit.h>
 #import "DRColorPickerBaseViewController.h"
 
-// stands for Digital Ruby Color Picket Translation
-#define DRCPTR(k, ...) [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(k, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"DRColorPicker" ofType:@"bundle"]], nil), ##__VA_ARGS__]
-
 @class DRColorPickerViewController;
 @class DRColorPickerHomeViewController;
 
