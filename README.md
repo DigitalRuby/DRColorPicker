@@ -26,6 +26,7 @@ version 1.0
 
 <p>Requirements:</p>
 <ul>
+<li>Xcode 6 or newer recommended</li>
 <li>iOS 6 or greater</li>
 <li>ARC enabled for the color picker source code</li>
 <li>Modules enabled for the project (i.e. @import ...)</li>

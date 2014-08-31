@@ -32,6 +32,7 @@
 		EC60581919B161960000FC23 /* DRColorPickerWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580519B161960000FC23 /* DRColorPickerWheelView.m */; };
 		EC60581A19B161960000FC23 /* DRColorPickerWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */; };
 		EC60589D19B16F830000FC23 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC60589C19B16F830000FC23 /* README.md */; };
+		EC60589F19B38B690000FC23 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EC60589E19B38B690000FC23 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		EC60580619B161960000FC23 /* DRColorPickerWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelViewController.h; sourceTree = "<group>"; };
 		EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelViewController.m; sourceTree = "<group>"; };
 		EC60589C19B16F830000FC23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		EC60589E19B38B690000FC23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +136,9 @@
 		EC6057C019B161790000FC23 /* DRColorPickerExample */ = {
 			isa = PBXGroup;
 			children = (
-				EC60589C19B16F830000FC23 /* README.md */,
 				EC6057E419B161960000FC23 /* DRColorPicker */,
+				EC60589C19B16F830000FC23 /* README.md */,
+				EC60589E19B38B690000FC23 /* LICENSE */,
 				EC6057C519B161790000FC23 /* AppDelegate.h */,
 				EC6057C619B161790000FC23 /* AppDelegate.m */,
 				EC6057C819B161790000FC23 /* ViewController.h */,
@@ -307,6 +310,7 @@
 				EC60580A19B161960000FC23 /* DRColorPicker.bundle in Resources */,
 				EC6057CD19B161790000FC23 /* Main.storyboard in Resources */,
 				EC6057CF19B161790000FC23 /* Images.xcassets in Resources */,
+				EC60589F19B38B690000FC23 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +465,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DRColorPickerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -472,6 +477,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = DRColorPickerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
