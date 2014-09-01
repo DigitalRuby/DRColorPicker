@@ -326,8 +326,7 @@ static CGFloat s_thumbnailSizePoints;
         [color clearImages];
 
         // create a copy so that changes to the color do not modify the color already in the list
-        DRColorPickerColor* clone = [[DRColorPickerColor alloc] initWithClone:found];
-        clone.alpha = color.alpha;
+        DRColorPickerColor* clone = [[DRColorPickerColor alloc] initWithClone:color];
 
         if (alphaMatch)
         {
