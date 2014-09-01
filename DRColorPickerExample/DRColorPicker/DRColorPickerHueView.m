@@ -119,7 +119,7 @@
     NSInteger page = self.lastPage;
     CGFloat hueBarPadding = 10.0f;
     CGFloat hueBarHeight = 44.0f;
-    self.hueBar.frame = CGRectMake(hueBarPadding, self.bounds.size.height - hueBarPadding - hueBarHeight - hueBarPadding, self.bounds.size.width - hueBarPadding - hueBarPadding, hueBarHeight);
+    self.hueBar.frame = CGRectMake(hueBarPadding, self.bounds.size.height - hueBarPadding - hueBarHeight, self.bounds.size.width - hueBarPadding - hueBarPadding, hueBarHeight);
     self.hueGrid.frame = CGRectMake(0.0f, 0.0f, self.bounds.size.width, self.bounds.size.height - hueBarPadding - hueBarHeight - hueBarPadding);
     [self.hueGrid.drCollectionViewLayout calculatePages];
     [self createDataSource];
