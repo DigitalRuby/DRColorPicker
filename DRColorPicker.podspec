@@ -7,7 +7,7 @@ s.license  = 'MIT'
 s.author = 'jjxtra'
 s.source = {
 :git => 'https://github.com/jjxtra/DRColorPicker.git',
-:commit => '0309657ea1eaa27fb89fcfc358b111cf9fdf21c3'
+:tag => 'v1.0'
 }
 s.platform = :ios, '6.0'
 s.source_files =  'DRColorPickerExample/DRColorPicker/'
