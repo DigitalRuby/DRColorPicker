@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC15157119B4E097001D6263 /* DRColorPicker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EC15156F19B4E097001D6263 /* DRColorPicker.podspec */; };
+		EC15157219B4E097001D6263 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EC15157019B4E097001D6263 /* LICENSE */; };
 		EC6057C419B161790000FC23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057C319B161790000FC23 /* main.m */; };
 		EC6057C719B161790000FC23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057C619B161790000FC23 /* AppDelegate.m */; };
 		EC6057CA19B161790000FC23 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057C919B161790000FC23 /* ViewController.m */; };
@@ -32,7 +34,6 @@
 		EC60581919B161960000FC23 /* DRColorPickerWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580519B161960000FC23 /* DRColorPickerWheelView.m */; };
 		EC60581A19B161960000FC23 /* DRColorPickerWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */; };
 		EC60589D19B16F830000FC23 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC60589C19B16F830000FC23 /* README.md */; };
-		EC60589F19B38B690000FC23 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EC60589E19B38B690000FC23 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC15156F19B4E097001D6263 /* DRColorPicker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DRColorPicker.podspec; sourceTree = SOURCE_ROOT; };
+		EC15157019B4E097001D6263 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		EC6057BE19B161790000FC23 /* DRColorPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRColorPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6057C219B161790000FC23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6057C319B161790000FC23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,7 +97,6 @@
 		EC60580619B161960000FC23 /* DRColorPickerWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelViewController.h; sourceTree = "<group>"; };
 		EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelViewController.m; sourceTree = "<group>"; };
 		EC60589C19B16F830000FC23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		EC60589E19B38B690000FC23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EC6058A119B3908D0000FC23 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		EC6058A219B390A00000FC23 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		EC6058A319B390A40000FC23 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -153,8 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				EC6057E419B161960000FC23 /* DRColorPicker */,
+				EC15157019B4E097001D6263 /* LICENSE */,
+				EC15156F19B4E097001D6263 /* DRColorPicker.podspec */,
 				EC60589C19B16F830000FC23 /* README.md */,
-				EC60589E19B38B690000FC23 /* LICENSE */,
 				EC6057C519B161790000FC23 /* AppDelegate.h */,
 				EC6057C619B161790000FC23 /* AppDelegate.m */,
 				EC6057C819B161790000FC23 /* ViewController.h */,
@@ -322,11 +325,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC15157219B4E097001D6263 /* LICENSE in Resources */,
 				EC60589D19B16F830000FC23 /* README.md in Resources */,
+				EC15157119B4E097001D6263 /* DRColorPicker.podspec in Resources */,
 				EC60580A19B161960000FC23 /* DRColorPicker.bundle in Resources */,
 				EC6057CD19B161790000FC23 /* Main.storyboard in Resources */,
 				EC6057CF19B161790000FC23 /* Images.xcassets in Resources */,
-				EC60589F19B38B690000FC23 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
