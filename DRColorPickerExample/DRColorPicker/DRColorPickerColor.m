@@ -204,4 +204,9 @@
     return _thumbnailImage;
 }
 
+- (NSString*) description
+{
+    return [NSString stringWithFormat:@"RGB: %@, Alpha: %f, Hash: %@, %@", self.rgbColor.hexStringFromColor, self.alpha, self.fullImageHash, super.description];
+}
+
 @end

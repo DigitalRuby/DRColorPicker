@@ -54,8 +54,6 @@
     _showAlphaSlider = YES;
 
     self.standardColors = [[DRColorPickerGridView alloc] init];
-    NSArray* colors = [[DRColorPickerStore sharedInstance] colorsForList:DRColorPickerStoreListStandard];
-    self.standardColors.colors = colors;
     [self addSubview:self.standardColors];
 
     self.alphaLabel = [[UILabel alloc] init];
@@ -152,6 +150,29 @@
 
     CGFloat standardColorsY = CGRectGetMaxY(self.topDivider.frame);
     self.standardColors.frame = CGRectMake(0.0f, standardColorsY, self.bounds.size.width, self.bounds.size.height - standardColorsY);
+
+    [self createStandardColors];
+}
+
+- (void) createStandardColors
+{
+    NSMutableArray* colors = [NSMutableArray array];
+    [self.standardColors.drCollectionViewLayout calculatePages];
+    NSInteger colorCount = self.standardColors.drCollectionViewLayout.itemsPerPage;
+    NSInteger hueCount = (colorCount / 3) * 2;
+    NSInteger grayCount = (colorCount / 3) - 1;
+    for (NSInteger i = 0; i < hueCount; i++)
+    {
+        UIColor* color = [UIColor colorWithHue:(CGFloat)i / (CGFloat)hueCount saturation:1.0 brightness:1.0 alpha:1.0];
+        [colors addObject:[[DRColorPickerColor alloc] initWithColor:color]];
+    }
+    for (NSInteger i = 0; i < grayCount; i++)
+    {
+        UIColor* color = [UIColor colorWithWhite:(CGFloat)i / (CGFloat)(grayCount - 1) alpha:1.0];
+        [colors addObject:[[DRColorPickerColor alloc] initWithColor:color]];
+    }
+    [colors addObject:[[DRColorPickerColor alloc] initWithColor:[UIColor clearColor]]];
+    self.standardColors.colors = colors;
 }
 
 - (void) animationDidStop:(CAAnimation*)anim finished:(BOOL)flag

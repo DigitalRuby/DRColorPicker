@@ -40,8 +40,7 @@ typedef void (^DRColorPickerStoreThumbnailCompletionBlock)(UIImage* thumbnailIma
 typedef NS_ENUM(NSInteger, DRColorPickerStoreList)
 {
     DRColorPickerStoreListRecent,
-    DRColorPickerStoreListFavorites,
-    DRColorPickerStoreListStandard
+    DRColorPickerStoreListFavorites
 };
 
 @interface DRColorPickerStore : NSObject
@@ -71,9 +70,6 @@ typedef NS_ENUM(NSInteger, DRColorPickerStoreList)
 
 // get full path to the full image for this color, nil if none
 - (NSString*) fullPathForColor:(DRColorPickerColor*)color;
-
-// array of DRColorPickerColor
-@property (nonatomic, strong, readonly) NSArray* standardColors;
 
 // array of DRColorPickerColor
 @property (nonatomic, strong, readonly) NSArray* recentColors;
