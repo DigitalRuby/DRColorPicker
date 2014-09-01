@@ -32,14 +32,12 @@ version 1.0
 <li>Modules enabled for the project (i.e. @import ...)</li>
 </ul>
 
-<div>Install via Cocoapods:
-<pre><code>
-pod 'DRColorPicker'
-</code></pre>
+<div>Install via Cocoapods:<br/>
+<pre><code>pod 'DRColorPicker'</code></pre>
 </div>
 
 <div>Manual install: Add the DRColorPickerExample/DRColorPicker folder to your iOS project. The DRColorPickerExample folder contains a sample project with a view controller that will show you how to setup and display the color picker.</div>
-
+<br/><br/>
 <p>Here are some screenshots:</p>
 <p style='font-size: 40px;'><b>iPad</b></p>
 <img src='https://raw.githubusercontent.com/jjxtra/DRColorPicker/master/Screenshots/Screenshot01Ipad.png' alt='DRColorPicker Screenshot' width='320px' />
