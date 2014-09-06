@@ -49,7 +49,7 @@ static UIImage* s_transparencyImage;
     if (self == [DRColorPickerColorView class])
     {
         s_borderColor = (DRColorPickerBorderColor ?: [UIColor colorWithWhite:0.85f alpha:1.0f]);
-        s_transparencyImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/common/drcolorpicker-checkerboard.png"];
+        s_transparencyImage = DRColorPickerImage(@"images/common/drcolorpicker-checkerboard.png");
     }
 }
 

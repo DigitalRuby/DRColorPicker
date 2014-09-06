@@ -96,23 +96,23 @@
 {
     if (self.addToFavoritesImage == nil)
     {
-        self.addToFavoritesImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/default/drcolorpicker-addtofavorites.png"];
+        self.addToFavoritesImage = DRColorPickerImage(@"images/default/drcolorpicker-addtofavorites.png");
     }
     if (self.favoritesImage == nil)
     {
-        self.favoritesImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/default/drcolorpicker-favorites.png"];
+        self.favoritesImage = DRColorPickerImage(@"images/default/drcolorpicker-favorites.png");
     }
     if (self.hueImage == nil)
     {
-        self.hueImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/default/drcolorpicker-hue.png"];
+        self.hueImage = DRColorPickerImage(@"images/default/drcolorpicker-hue.png");
     }
     if (self.wheelImage == nil)
     {
-        self.wheelImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/default/drcolorpicker-wheel.png"];
+        self.wheelImage = DRColorPickerImage(@"images/default/drcolorpicker-wheel.png");
     }
     if (self.importImage == nil)
     {
-        self.importImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/default/drcolorpicker-import.png"];
+        self.importImage = DRColorPickerImage(@"images/default/drcolorpicker-import.png");
     }
 }
 

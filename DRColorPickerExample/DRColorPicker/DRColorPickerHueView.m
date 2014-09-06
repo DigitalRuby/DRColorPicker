@@ -29,6 +29,7 @@
  */
 
 #import "DRColorPickerHueView.h"
+#import "DRColorPicker.h"
 
 #define DR_COLOR_PICKER_HUE_VIEW_PAGE_COUNT 12
 
@@ -55,7 +56,7 @@
     };
     [self addSubview:self.hueGrid];
 
-    UIImage* hueBarImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/common/drcolorpicker-color-bar.png"];
+    UIImage* hueBarImage = DRColorPickerImage(@"images/common/drcolorpicker-color-bar.png");
     self.hueBar = [[UIImageView alloc] initWithImage:hueBarImage];
     self.hueBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.hueBar.userInteractionEnabled = YES;
@@ -65,7 +66,7 @@
     [self.hueBar addGestureRecognizer:panGesture];
     [self addSubview:self.hueBar];
 
-    self.hueIndicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DRColorPicker.bundle/images/common/drcolorpicker-brightnessguide.png"]];
+    self.hueIndicator = [[UIImageView alloc] initWithImage:DRColorPickerImage(@"images/common/drcolorpicker-brightnessguide.png")];
     self.hueIndicator.layer.shadowColor = [UIColor blackColor].CGColor;
     self.hueIndicator.layer.shadowOffset = CGSizeZero;
     self.hueIndicator.layer.shadowRadius = 1;

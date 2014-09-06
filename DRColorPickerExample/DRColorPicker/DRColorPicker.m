@@ -39,3 +39,16 @@ UIColor* DRColorPickerBorderColor;
 NSInteger DRColorPickerStoreMaxColors = 200;
 BOOL DRColorPickerUsePNG = NO;
 CGFloat DRColorPickerJPEG2000Quality = 0.9f;
+
+UIImage* DRColorPickerImage(NSString* subPath)
+{
+    NSString* fullPath = [@"DRColorPicker.bundle/" stringByAppendingString:subPath];
+    UIImage* img = [UIImage imageNamed:fullPath];
+    if (img == nil)
+    {
+        NSBundle* b = [NSBundle bundleWithPath:[[NSBundle bundleForClass:DRColorPickerViewController.class] pathForResource:@"DRColorPicker" ofType:@"bundle"]];
+        img = [UIImage imageNamed:[[b.bundlePath stringByAppendingString:@"/"] stringByAppendingString:subPath]];
+    }
+
+    return img;
+}

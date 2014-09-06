@@ -32,7 +32,10 @@
 #import "DRColorPickerViewController.h"
 
 // stands for Digital Ruby Color Picker Translation
-#define DRCPTR(k, ...) [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(k, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"DRColorPicker" ofType:@"bundle"]], nil), ##__VA_ARGS__]
+//#define DRCPTR(k, ...) [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(k, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"DRColorPicker" ofType:@"bundle"]], nil), ##__VA_ARGS__]
+#define DRCPTR(k, ...) [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(k, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[[NSBundle bundleForClass:DRColorPickerViewController.class] pathForResource:@"DRColorPicker" ofType:@"bundle"]], nil), ##__VA_ARGS__]
+
+UIImage* DRColorPickerImage(NSString* subPath);
 
 // size of each individual color in points on iPhone, default is 42
 extern CGFloat DRColorPickerThumbnailSizeInPointsPhone;

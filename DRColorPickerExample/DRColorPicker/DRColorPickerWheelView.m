@@ -159,7 +159,7 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
     _colorPreviewView.layer.borderColor = DRColorPickerBorderColor.CGColor;
     [self addSubview:_colorPreviewView];
 
-    _hueSaturationImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"DRColorPicker.bundle/images/common/drcolorpicker-colormap.png"]];
+    _hueSaturationImage = [[UIImageView alloc] initWithImage:DRColorPickerImage(@"images/common/drcolorpicker-colormap.png")];
     _hueSaturationImage.layer.borderWidth = 1.0f;
     _hueSaturationImage.layer.borderColor = borderColor.CGColor;
     [self addSubview:_hueSaturationImage];
@@ -185,7 +185,7 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 
     _brightnessIndicator = [[UIImageView alloc] initWithFrame:CGRectMake(DRColorPickerWheelViewDefaultMargin, self.brightnessView.center.y,
                                                                          DRColorPickerWheelViewBrightnessIndicatorWidth, DRColorPickerWheelViewBrightnessIndicatorHeight)];
-    _brightnessIndicator.image = [UIImage imageNamed:@"DRColorPicker.bundle/images/common/drcolorpicker-brightnessguide.png"];
+    _brightnessIndicator.image = DRColorPickerImage(@"images/common/drcolorpicker-brightnessguide.png");
     _brightnessIndicator.layer.shadowColor = [UIColor blackColor].CGColor;
     _brightnessIndicator.layer.shadowOffset = CGSizeZero;
     _brightnessIndicator.layer.shadowRadius = 1;

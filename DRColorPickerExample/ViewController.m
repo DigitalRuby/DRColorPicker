@@ -80,7 +80,7 @@
     vc.modalPresentationStyle = UIModalPresentationFormSheet;
     vc.rootViewController.showAlphaSlider = YES; // default is YES, set to NO to hide the alpha slider
 
-    NSInteger theme = 0; // 0 = default, 1 = dark, 2 = light
+    NSInteger theme = 2; // 0 = default, 1 = dark, 2 = light
 
     // in addition to the default images, you can set the images for a light or dark navigation bar / toolbar theme, these are built-in to the color picker bundle
     if (theme == 0)
@@ -94,19 +94,19 @@
     }
     else if (theme == 1)
     {
-        vc.rootViewController.addToFavoritesImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/dark/drcolorpicker-addtofavorites-dark.png"];
-        vc.rootViewController.favoritesImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/dark/drcolorpicker-favorites-dark.png"];
-        vc.rootViewController.hueImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/dark/drcolorpicker-hue-v3-dark.png"];
-        vc.rootViewController.wheelImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/dark/drcolorpicker-wheel-dark.png"];
-        vc.rootViewController.importImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/dark/drcolorpicker-import-dark.png"];
+        vc.rootViewController.addToFavoritesImage = DRColorPickerImage(@"images/dark/drcolorpicker-addtofavorites-dark.png");
+        vc.rootViewController.favoritesImage = DRColorPickerImage(@"images/dark/drcolorpicker-favorites-dark.png");
+        vc.rootViewController.hueImage = DRColorPickerImage(@"images/dark/drcolorpicker-hue-v3-dark.png");
+        vc.rootViewController.wheelImage = DRColorPickerImage(@"images/dark/drcolorpicker-wheel-dark.png");
+        vc.rootViewController.importImage = DRColorPickerImage(@"images/dark/drcolorpicker-import-dark.png");
     }
     else if (theme == 2)
     {
-        vc.rootViewController.addToFavoritesImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/light/drcolorpicker-addtofavorites-light.png"];
-        vc.rootViewController.favoritesImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/light/drcolorpicker-favorites-light.png"];
-        vc.rootViewController.hueImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/light/drcolorpicker-hue-v3-light.png"];
-        vc.rootViewController.wheelImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/light/drcolorpicker-wheel-light.png"];
-        vc.rootViewController.importImage = [UIImage imageNamed:@"DRColorPicker.bundle/images/light/drcolorpicker-import-light.png"];
+        vc.rootViewController.addToFavoritesImage = DRColorPickerImage(@"images/light/drcolorpicker-addtofavorites-light.png");
+        vc.rootViewController.favoritesImage = DRColorPickerImage(@"images/light/drcolorpicker-favorites-light.png");
+        vc.rootViewController.hueImage = DRColorPickerImage(@"images/light/drcolorpicker-hue-v3-light.png");
+        vc.rootViewController.wheelImage = DRColorPickerImage(@"images/light/drcolorpicker-wheel-light.png");
+        vc.rootViewController.importImage = DRColorPickerImage(@"images/light/drcolorpicker-import-light.png");
     }
 
     // assign a weak reference to the color picker, need this for UIImagePickerController delegate
