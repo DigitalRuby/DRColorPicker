@@ -47,7 +47,12 @@ UIImage* DRColorPickerImage(NSString* subPath)
     if (img == nil)
     {
         NSBundle* b = [NSBundle bundleWithPath:[[NSBundle bundleForClass:DRColorPickerViewController.class] pathForResource:@"DRColorPicker" ofType:@"bundle"]];
-        img = [UIImage imageNamed:[[b.bundlePath stringByAppendingString:@"/"] stringByAppendingString:subPath]];
+        fullPath = [[b.bundlePath stringByAppendingString:@"/"] stringByAppendingString:subPath];
+        img = [UIImage imageNamed:fullPath];
+        if (img == nil)
+        {
+            img = [UIImage imageWithContentsOfFile:fullPath];
+        }
     }
 
     return img;
