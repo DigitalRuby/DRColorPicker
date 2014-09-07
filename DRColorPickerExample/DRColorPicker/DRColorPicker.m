@@ -42,6 +42,17 @@ CGFloat DRColorPickerJPEG2000Quality = 0.9f;
 
 UIImage* DRColorPickerImage(NSString* subPath)
 {
+    if (subPath.length == 0)
+    {
+        return nil;
+    }
+
+    static NSCache* imageWithContentsOfFileCache;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken,
+    ^{
+        imageWithContentsOfFileCache = [[NSCache alloc] init];
+    });
     NSString* fullPath = [@"DRColorPicker.bundle/" stringByAppendingString:subPath];
     UIImage* img = [UIImage imageNamed:fullPath];
     if (img == nil)
@@ -51,9 +62,17 @@ UIImage* DRColorPickerImage(NSString* subPath)
         img = [UIImage imageNamed:fullPath];
         if (img == nil)
         {
-            img = [UIImage imageWithContentsOfFile:fullPath];
+            img = (UIImage*)[imageWithContentsOfFileCache objectForKey:subPath];
+            if (img == nil)
+            {
+                img = [UIImage imageWithContentsOfFile:fullPath];
+                if (img != nil)
+                {
+                    [imageWithContentsOfFileCache setObject:img forKey:subPath];
+                }
+            }
         }
     }
-
+    
     return img;
 }
