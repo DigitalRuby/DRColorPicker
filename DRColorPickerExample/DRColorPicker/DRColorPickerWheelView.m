@@ -32,20 +32,31 @@
 #import "DRColorPicker+UIColor.h"
 #import "DRColorPicker.h"
 
-@interface DRColorPickerWheelViewBrightnessView : UIView
+@interface DRColorPickerWheelGradientView : UIView
 
 @property (nonatomic, assign) CGGradientRef gradient;
-@property (nonatomic, strong) UIColor* color;
+@property (nonatomic, strong) UIColor* color1;
+@property (nonatomic, strong) UIColor* color2;
 
 @end
 
-@implementation DRColorPickerWheelViewBrightnessView
+@implementation DRColorPickerWheelGradientView
 
-- (void) setColor:(UIColor*)color
+- (void) setColor1:(UIColor*)color
 {
-    if (_color != color)
+    if (_color1 != color)
     {
-        _color = [color copy];
+        _color1 = [color copy];
+        [self setupGradient];
+        [self setNeedsDisplay];
+    }
+}
+
+- (void) setColor2:(UIColor*)color
+{
+    if (_color2 != color)
+    {
+        _color2 = [color copy];
         [self setupGradient];
         [self setNeedsDisplay];
     }
@@ -53,8 +64,15 @@
 
 - (void) setupGradient
 {
-	const CGFloat *c = CGColorGetComponents(_color.CGColor);
-	CGFloat colors[] = { c[0], c[1], c[2], 1.0f, 0.0f, 0.0f, 0.0f, 1.0f };
+    if (_color1 == nil || _color2 == nil)
+    {
+        return;
+    }
+
+	const CGFloat* c1 = CGColorGetComponents(_color1.CGColor);
+	const CGFloat* c2 = CGColorGetComponents(_color2.CGColor);
+
+	CGFloat colors[] = { c1[0], c1[1], c1[2], 1.0f, c2[0], c2[1], c2[2], 1.0f };
 	CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
 
     if (self.gradient != NULL)
@@ -100,9 +118,11 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 
 @interface DRColorPickerWheelView () <UITextFieldDelegate>
 
-@property (nonatomic, strong) DRColorPickerWheelViewBrightnessView* brightnessView;
+@property (nonatomic, strong) DRColorPickerWheelGradientView* brightnessView;
 @property (nonatomic, strong) UIImageView* brightnessIndicator;
-@property (nonatomic, strong) UIImageView* hueSaturationImage;
+@property (nonatomic, strong) DRColorPickerWheelGradientView* saturationView;
+@property (nonatomic, strong) UIImageView* saturationIndicator;
+@property (nonatomic, strong) UIImageView* hueImage;
 @property (nonatomic, strong) UIView* colorBubble;
 @property (nonatomic, assign) CGFloat brightness;
 @property (nonatomic, assign) CGFloat hue;
@@ -159,18 +179,21 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
     _colorPreviewView.layer.borderColor = DRColorPickerBorderColor.CGColor;
     [self addSubview:_colorPreviewView];
 
-    _hueSaturationImage = [[UIImageView alloc] initWithImage:DRColorPickerImage(@"images/common/drcolorpicker-colormap.png")];
-    _hueSaturationImage.layer.borderWidth = 1.0f;
-    _hueSaturationImage.layer.borderColor = borderColor.CGColor;
-    [self addSubview:_hueSaturationImage];
+    _hueImage = [[UIImageView alloc] initWithImage:DRColorPickerImage(@"images/common/drcolorpicker-colormap.png")];
+    _hueImage.layer.borderWidth = 1.0f;
+    _hueImage.layer.borderColor = borderColor.CGColor;
+    [self addSubview:_hueImage];
 
-    _brightnessView = [[DRColorPickerWheelViewBrightnessView alloc] init];
-    _brightnessView.layer.borderWidth = 1.0f;
-    _brightnessView.layer.borderColor = borderColor.CGColor;
-    [self addSubview:_brightnessView];
+    _brightnessView = [self createBarViewWithBorderColor:borderColor];
+    _brightnessIndicator = [self createIndicator];
 
-    _colorBubble = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMidX(_brightnessView.frame), CGRectGetMidX(_brightnessView.frame),
-                                                           DRColorPickerWheelViewCrossHairshWidthAndHeight, DRColorPickerWheelViewCrossHairshWidthAndHeight)];
+    if (DRColorPickerShowSaturationBar)
+    {
+        _saturationView = [self createBarViewWithBorderColor:borderColor];
+        _saturationIndicator = [self createIndicator];
+    }
+
+    _colorBubble = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, DRColorPickerWheelViewCrossHairshWidthAndHeight, DRColorPickerWheelViewCrossHairshWidthAndHeight)];
     UIColor* bubbleBorderColor = [UIColor colorWithWhite:0.9 alpha:0.8];
     _colorBubble.layer.cornerRadius = DRColorPickerWheelViewCrossHairshWidthAndHeight * 0.5f;
     _colorBubble.layer.borderColor = bubbleBorderColor.CGColor;
@@ -182,17 +205,32 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
     _colorBubble.layer.shouldRasterize = YES;
     _colorBubble.layer.rasterizationScale = UIScreen.mainScreen.scale;
     [self addSubview:_colorBubble];
+}
 
-    _brightnessIndicator = [[UIImageView alloc] initWithFrame:CGRectMake(DRColorPickerWheelViewDefaultMargin, self.brightnessView.center.y,
+- (DRColorPickerWheelGradientView*) createBarViewWithBorderColor:(UIColor*)borderColor
+{
+    DRColorPickerWheelGradientView* v = [[DRColorPickerWheelGradientView alloc] init];
+    v.layer.borderWidth = 1.0f;
+    v.layer.borderColor = borderColor.CGColor;
+    [self addSubview:v];
+
+    return v;
+}
+
+- (UIImageView*) createIndicator
+{
+    UIImageView* indicator = [[UIImageView alloc] initWithFrame:CGRectMake(DRColorPickerWheelViewDefaultMargin, self.brightnessView.center.y,
                                                                          DRColorPickerWheelViewBrightnessIndicatorWidth, DRColorPickerWheelViewBrightnessIndicatorHeight)];
-    _brightnessIndicator.image = DRColorPickerImage(@"images/common/drcolorpicker-brightnessguide.png");
-    _brightnessIndicator.layer.shadowColor = [UIColor blackColor].CGColor;
-    _brightnessIndicator.layer.shadowOffset = CGSizeZero;
-    _brightnessIndicator.layer.shadowRadius = 1;
-    _brightnessIndicator.layer.shadowOpacity = 0.8f;
-    _brightnessIndicator.layer.shouldRasterize = YES;
-    _brightnessIndicator.layer.rasterizationScale = UIScreen.mainScreen.scale;
-    [self addSubview:_brightnessIndicator];
+    indicator.image = DRColorPickerImage(@"images/common/drcolorpicker-brightnessguide.png");
+    indicator.layer.shadowColor = [UIColor blackColor].CGColor;
+    indicator.layer.shadowOffset = CGSizeZero;
+    indicator.layer.shadowRadius = 1;
+    indicator.layer.shadowOpacity = 0.8f;
+    indicator.layer.shouldRasterize = YES;
+    indicator.layer.rasterizationScale = UIScreen.mainScreen.scale;
+    [self addSubview:indicator];
+
+    return indicator;
 }
 
 - (void) layoutSubviews
@@ -209,18 +247,33 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
     CGFloat previewX = DRColorPickerWheelViewDefaultMargin + DRColorPickerWheelLabelWidth + DRColorPickerWheelViewDefaultMargin + DRColorPickerWheelTextFieldWidth;
     self.colorPreviewView.frame = CGRectMake(previewX, DRColorPickerWheelViewDefaultMargin, self.frame.size.width - DRColorPickerWheelViewDefaultMargin - previewX, DRColorPickerWheelLabelHeight);
 
+    CGFloat hueHeight;
+    if (self.saturationView == nil)
+    {
+        hueHeight = CGRectGetHeight(self.frame) - DRColorPickerWheelViewGradientViewHeight - DRColorPickerWheelViewGradientTopMargin - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelLabelHeight;
+    }
+    else
+    {
+        hueHeight = CGRectGetHeight(self.frame) - DRColorPickerWheelViewGradientViewHeight - DRColorPickerWheelViewGradientViewHeight - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelViewGradientTopMargin - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelLabelHeight;
+    }
 
-    self.hueSaturationImage.frame = CGRectMake(DRColorPickerWheelViewDefaultMargin,
+    self.hueImage.frame = CGRectMake(DRColorPickerWheelViewDefaultMargin,
                                                DRColorPickerWheelViewDefaultMargin + DRColorPickerWheelViewDefaultMargin + DRColorPickerWheelLabelHeight,
                                                CGRectGetWidth(self.frame) - (DRColorPickerWheelViewDefaultMargin * 2),
-                                               CGRectGetHeight(self.frame) - DRColorPickerWheelViewGradientViewHeight - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelViewGradientTopMargin - DRColorPickerWheelViewDefaultMargin - DRColorPickerWheelLabelHeight);
+                                               hueHeight);
     
-    self.brightnessView.frame = CGRectMake(DRColorPickerWheelViewDefaultMargin,
-                                         CGRectGetHeight(self.frame) - DRColorPickerWheelViewGradientViewHeight - DRColorPickerWheelViewDefaultMargin,
+    self.saturationView.frame = CGRectMake(DRColorPickerWheelViewDefaultMargin,
+                                         CGRectGetMaxY(self.hueImage.frame) + DRColorPickerWheelViewDefaultMargin,
                                          CGRectGetWidth(self.frame) - (DRColorPickerWheelViewDefaultMargin * 2),
                                          DRColorPickerWheelViewGradientViewHeight);
 
-    [self updateBrightnessPosition];
+    CGFloat brightnessY = (self.saturationView == nil ? CGRectGetMaxY(self.hueImage.frame) + DRColorPickerWheelViewDefaultMargin : CGRectGetMaxY(self.saturationView.frame) + DRColorPickerWheelViewDefaultMargin);
+    self.brightnessView.frame = CGRectMake(DRColorPickerWheelViewDefaultMargin,
+                                           brightnessY,
+                                           CGRectGetWidth(self.frame) - (DRColorPickerWheelViewDefaultMargin * 2),
+                                           DRColorPickerWheelViewGradientViewHeight);
+
+    [self updateIndicatorsPosition];
     [self updateColorBubblePosition];
 }
 
@@ -277,21 +330,27 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
             self.rgbTextField.text = hex;
         }
 
-        [self updateBrightnessColor];
-        [self updateBrightnessPosition];
+        [self updateIndicatorsColor];
+        [self updateIndicatorsPosition];
         [self updateColorBubblePosition];
     }
 }
 
-- (void) updateBrightnessPosition
+- (void) updateIndicatorsPosition
 {
-    [self.color getHue:nil saturation:nil brightness:&_brightness alpha:nil];
+    [self.color getHue:nil saturation:&_saturation brightness:&_brightness alpha:nil];
     
     CGPoint brightnessPosition;
     brightnessPosition.x = (1.0f - self.brightness) * self.brightnessView.frame.size.width + self.brightnessView.frame.origin.x;
     brightnessPosition.y = self.brightnessView.center.y;
     
     self.brightnessIndicator.center = brightnessPosition;
+
+    CGPoint saturationPosition;
+    saturationPosition.x = (1.0f - self.saturation) * self.saturationView.frame.size.width + self.saturationView.frame.origin.x;
+    saturationPosition.y = self.saturationView.center.y;
+
+    self.saturationIndicator.center = saturationPosition;
 }
 
 - (void) setColorBubblePosition:(CGPoint)p
@@ -303,28 +362,35 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 {
     CGPoint hueSatPosition;
     
-    hueSatPosition.x = (self.hue * self.hueSaturationImage.frame.size.width) + self.hueSaturationImage.frame.origin.x;
-    hueSatPosition.y = (1.0f - self.saturation) * self.hueSaturationImage.frame.size.height + self.hueSaturationImage.frame.origin.y;
+    hueSatPosition.x = (self.hue * self.hueImage.frame.size.width) + self.hueImage.frame.origin.x;
+    hueSatPosition.y = (1.0f - self.saturation) * self.hueImage.frame.size.height + self.hueImage.frame.origin.y;
     [self setColorBubblePosition:hueSatPosition];
-    [self updateBrightnessColor];
+    [self updateIndicatorsColor];
 }
 
-- (void) updateBrightnessColor
+- (void) updateIndicatorsColor
 {
-    UIColor* brightnessColor = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:1.0f alpha:1.0f];
-    self.colorBubble.backgroundColor = brightnessColor;
-	[self.brightnessView setColor:brightnessColor];
+    UIColor* brightnessColor1 = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:1.0f alpha:1.0f];
+    UIColor* brightnessColor2 = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:0.0f alpha:1.0f];
+    self.colorBubble.backgroundColor = brightnessColor1;
+	[self.brightnessView setColor1:brightnessColor1];
+	[self.brightnessView setColor2:brightnessColor2];
+
+    UIColor* saturationColor1 = [UIColor colorWithHue:self.hue saturation:0.0f brightness:1.0f alpha:1.0f];
+    UIColor* saturationColor2 = [UIColor colorWithHue:self.hue saturation:1.0f brightness:1.0f alpha:1.0f];
+    [self.saturationView setColor1:saturationColor2];
+    [self.saturationView setColor2:saturationColor1];
 }
 
-- (void) updateHueSatWithMovement:(CGPoint)position
+- (void) updateHueWithMovement:(CGPoint)position
 {
-	self.hue = (position.x - self.hueSaturationImage.frame.origin.x) / self.hueSaturationImage.frame.size.width;
-	self.saturation = 1.0f -  (position.y - self.hueSaturationImage.frame.origin.y) / self.hueSaturationImage.frame.size.height;
+	self.hue = (position.x - self.hueImage.frame.origin.x) / self.hueImage.frame.size.width;
+	self.saturation = 1.0f -  (position.y - self.hueImage.frame.origin.y) / self.hueImage.frame.size.height;
     
 	UIColor* topColor = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:self.brightness alpha:1.0f];
     UIColor* gradientColor = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:1.0f alpha:1.0f];
     self.colorBubble.backgroundColor = gradientColor;
-    [self updateBrightnessColor];
+    [self updateIndicatorsColor];
     [self setColor:topColor];
 }
 
@@ -333,6 +399,14 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 	self.brightness = 1.0f - ((position.x - self.brightnessView.frame.origin.x) / self.brightnessView.frame.size.width);
 	
 	UIColor* topColor = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:self.brightness alpha:1.0f];
+    [self setColor:topColor];
+}
+
+- (void) updateSaturationWithMovement:(CGPoint)position
+{
+    self.saturation = 1.0f - ((position.x - self.saturationView.frame.origin.x) / self.saturationView.frame.size.width);
+
+    UIColor* topColor = [UIColor colorWithHue:self.hue saturation:self.saturation brightness:self.brightness alpha:1.0f];
     [self setColor:topColor];
 }
 
@@ -358,16 +432,21 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 
 - (void) handleTouchEvent:(CGPoint)position
 {
-	if (CGRectContainsPoint(self.hueSaturationImage.frame,position))
+	if (CGRectContainsPoint(self.hueImage.frame,position))
     {
         [self setColorBubblePosition:position];
-		[self updateHueSatWithMovement:position];
+		[self updateHueWithMovement:position];
 	}
     else if (CGRectContainsPoint(self.brightnessView.frame, position))
     {
         self.brightnessIndicator.center = CGPointMake(position.x, self.brightnessView.center.y);
 		[self updateBrightnessWithMovement:position];
 	}
+    else if (CGRectContainsPoint(self.saturationView.frame, position))
+    {
+        self.saturationIndicator.center = CGPointMake(position.x, self.brightnessView.center.y);
+        [self updateSaturationWithMovement:position];
+    }
 }
 
 @end

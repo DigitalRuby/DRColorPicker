@@ -60,8 +60,9 @@
 //    DRColorPickerThumbnailSizeInPointsPhone = 44.0f; // default is 42
 //    DRColorPickerThumbnailSizeInPointsPad = 44.0f; // default is 54
 
+    // REQUIRED SETUP....................
     // background color of each view
-    DRColorPickerBackgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    DRColorPickerBackgroundColor = [UIColor colorWithWhite:1.0f alpha:1.0f];
 
     // border color of the color thumbnails
     DRColorPickerBorderColor = [UIColor blackColor];
@@ -71,9 +72,23 @@
 
     // font color for labels in the color picker
     DRColorPickerLabelColor = [UIColor blackColor];
+    // END REQUIRED SETUP
 
-    // max number of colors in the recent and favorites
+    // OPTIONAL SETUP....................
+    // max number of colors in the recent and favorites, the default is 200
     DRColorPickerStoreMaxColors = 200;
+
+    // show a saturation bar in the color wheel view - the default is NO
+    DRColorPickerShowSaturationBar = YES;
+
+    // use JPEG2000, not PNG which is the default
+    // *** WARNING - NEVER CHANGE THIS ONCE YOU RELEASE YOUR APP!!! ***
+    DRColorPickerUsePNG = NO;
+
+    // JPEG2000 quality default is 0.9, which really reduces the file size but still keeps a nice looking image
+    // *** WARNING - NEVER CHANGE THIS ONCE YOU RELEASE YOUR APP!!! ***
+    DRColorPickerJPEG2000Quality = 0.9f;
+    // END OPTIONAL SETUP
 
     // create the color picker
     DRColorPickerViewController* vc = [DRColorPickerViewController newColorPickerWithColor:self.color];

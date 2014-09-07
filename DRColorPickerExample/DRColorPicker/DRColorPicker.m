@@ -37,6 +37,7 @@ UIColor* DRColorPickerLabelColor;
 UIColor* DRColorPickerBackgroundColor;
 UIColor* DRColorPickerBorderColor;
 NSInteger DRColorPickerStoreMaxColors = 200;
+BOOL DRColorPickerShowSaturationBar = NO;
 BOOL DRColorPickerUsePNG = NO;
 CGFloat DRColorPickerJPEG2000Quality = 0.9f;
 
@@ -73,6 +74,6 @@ UIImage* DRColorPickerImage(NSString* subPath)
             }
         }
     }
-    
+
     return img;
 }
