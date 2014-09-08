@@ -129,6 +129,7 @@ static UIImage* s_transparencyImage;
 
         if (highlighted)
         {
+			self.thumbnailView.layer.cornerRadius = 0.0f;
             self.thumbnailView.layer.shadowColor = self.thumbnailView.layer.borderColor;
             self.thumbnailView.layer.shadowOffset = CGSizeZero;
             self.thumbnailView.layer.shadowRadius = 6.0f;
@@ -137,6 +138,7 @@ static UIImage* s_transparencyImage;
         }
         else
         {
+			self.thumbnailView.layer.cornerRadius = self.thumbnailView.bounds.size.width * 0.5f;
             self.thumbnailView.layer.shadowColor = [UIColor clearColor].CGColor;
             self.thumbnailView.layer.shadowOffset = CGSizeZero;
             self.thumbnailView.layer.shadowRadius = 0.0f;

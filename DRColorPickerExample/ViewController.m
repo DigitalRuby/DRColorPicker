@@ -75,12 +75,15 @@
     // END REQUIRED SETUP
 
     // OPTIONAL SETUP....................
-    // max number of colors in the recent and favorites, the default is 200
+    // max number of colors in the recent and favorites - default is 200
     DRColorPickerStoreMaxColors = 200;
 
-    // show a saturation bar in the color wheel view - the default is NO
+    // show a saturation bar in the color wheel view - default is NO
     DRColorPickerShowSaturationBar = YES;
 
+	// highlight the last hue in the hue view - default is NO
+	DRColorPickerHighlightLastHue = YES;
+	
     // use JPEG2000, not PNG which is the default
     // *** WARNING - NEVER CHANGE THIS ONCE YOU RELEASE YOUR APP!!! ***
     DRColorPickerUsePNG = NO;
