@@ -75,6 +75,7 @@ static UIImage* s_transparencyImage;
 - (void) setColor:(DRColorPickerColor*)color
 {
     _color = color;
+    self.highlighted = NO;
 
     if (color == nil)
     {
@@ -117,6 +118,31 @@ static UIImage* s_transparencyImage;
     {
         self.transparencyView.image = s_transparencyImage;
         self.transparencyView.layer.cornerRadius = self.transparencyView.bounds.size.width * 0.5f;
+    }
+}
+
+- (void) setHighlighted:(BOOL)highlighted
+{
+    if (_highlighted != highlighted)
+    {
+        _highlighted = highlighted;
+
+        if (highlighted)
+        {
+            self.thumbnailView.layer.shadowColor = self.thumbnailView.layer.borderColor;
+            self.thumbnailView.layer.shadowOffset = CGSizeZero;
+            self.thumbnailView.layer.shadowRadius = 6.0f;
+            self.thumbnailView.layer.shadowOpacity = 0.9f;
+            self.thumbnailView.layer.borderWidth = 2.0f;
+        }
+        else
+        {
+            self.thumbnailView.layer.shadowColor = [UIColor clearColor].CGColor;
+            self.thumbnailView.layer.shadowOffset = CGSizeZero;
+            self.thumbnailView.layer.shadowRadius = 0.0f;
+            self.thumbnailView.layer.shadowOpacity = 0.0f;
+            self.thumbnailView.layer.borderWidth = 1.0f;
+        }
     }
 }
 

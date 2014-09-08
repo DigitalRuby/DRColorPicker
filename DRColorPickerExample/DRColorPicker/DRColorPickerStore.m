@@ -165,6 +165,7 @@ static CGFloat s_thumbnailSizePoints;
     NSFileManager* f = [[NSFileManager alloc] init];
     [f createDirectoryAtPath:[self rootDirectory] withIntermediateDirectories:YES attributes:nil error:nil];
     [self migrateColors];
+    [self loadColorSettings];
 
     return self;
 }

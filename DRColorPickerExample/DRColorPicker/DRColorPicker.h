@@ -61,6 +61,9 @@ extern NSInteger DRColorPickerStoreMaxColors;
 // should a saturation bar be shown on the color wheel view? Default is NO
 extern BOOL DRColorPickerShowSaturationBar;
 
+// highlight the last hue picked in the hue view, default is NO
+extern BOOL DRColorPickerHighlightLastHue;
+
 // if you are allowing textures, they default to JPEG2000 to save disk space. This is slower to save and may have a tiny loss of quality,
 // so if performance is a concern, set this to YES.
 // ***** once you have set this once for your app, do not ever change it as it will invalidate the hashes for all your textures (this would be bad) *****

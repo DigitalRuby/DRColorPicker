@@ -29,6 +29,7 @@
  */
 
 #import "DRColorPickerBaseViewController.h"
+#import "DRColorPickerColor.h"
 
 @interface DRColorPickerHueViewController : DRColorPickerBaseViewController
 

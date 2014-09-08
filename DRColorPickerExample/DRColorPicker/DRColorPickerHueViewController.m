@@ -50,9 +50,16 @@
         __weak DRColorPickerHueViewController* weakSelf = self;
         self.title = DRCPTR(@"Hue");
         self.hueView = [[DRColorPickerHueView alloc] initWithFrame:self.view.bounds];
+
+        if (DRColorPickerHighlightLastHue)
+        {
+            self.hueView.hueGrid.highlightColor = self.color;
+        }
+
         self.hueView.hueGrid.colorSelectedBlock = ^(DRColorPickerColor* color)
         {
             DRColorPickerHueViewController* strongSelf = weakSelf;
+            strongSelf.color = color;
             if (strongSelf.colorSelectedBlock != nil)
             {
                 strongSelf.colorSelectedBlock(color, strongSelf);

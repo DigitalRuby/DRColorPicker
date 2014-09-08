@@ -42,6 +42,9 @@ typedef void (^DRColorPickerGridViewScrolledBlock)();
 // array of DRColorPickerColor
 @property (nonatomic, strong) NSArray* colors;
 
+// optional, highlight an existing color
+@property (nonatomic, strong) DRColorPickerColor* highlightColor;
+
 // current page
 @property (nonatomic, assign, readonly) NSInteger page;
 

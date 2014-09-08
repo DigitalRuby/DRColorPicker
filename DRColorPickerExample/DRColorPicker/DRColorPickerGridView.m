@@ -57,6 +57,7 @@
     self.backgroundColor = [UIColor clearColor];
     self.showsHorizontalScrollIndicator = self.showsVerticalScrollIndicator = NO;
     self.pagingEnabled = YES;
+    self.clipsToBounds = NO;
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
     self.longPressGesture.delaysTouchesBegan = YES;
     [self addGestureRecognizer:self.longPressGesture];
@@ -90,6 +91,26 @@
 {
     _colors = colors;
 
+    if (self.highlightColor.rgbColor != nil)
+    {
+        NSInteger index = 0;
+        for (DRColorPickerColor* color in colors)
+        {
+            if ([self.highlightColor.rgbColor isEqual:color.rgbColor])
+            {
+                self.highlightColor = color;
+                // scroll to the highlighted cell
+                dispatch_async(dispatch_get_main_queue(), ^
+                {
+                    NSInteger page = index / self.drCollectionViewLayout.itemsPerPage;
+                    [self setContentOffset:CGPointMake(self.bounds.size.width * page, 0.0f) animated:NO];
+                });
+                break;
+            }
+            index++;
+        }
+    }
+
     [self reloadData];
 }
 
@@ -120,6 +141,7 @@
         {
             DRColorPickerGridViewCell* cell = [self dequeueReusableCellWithReuseIdentifier:@"DRColorPickerGridViewCell" forIndexPath:indexPath];
             cell.colorView.color = color;
+            cell.colorView.highlighted = (self.highlightColor != nil && color == self.highlightColor);
             return cell;
         }
     }

@@ -34,5 +34,6 @@
 @interface DRColorPickerColorView : UIView
 
 @property (nonatomic, strong) DRColorPickerColor* color;
+@property (nonatomic, assign) BOOL highlighted;
 
 @end
