@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
 s.name = 'DRColorPicker'
-s.version = '1.0'
+s.version = '1.0.1'
 s.summary = 'Digital Ruby Color Picker'
 s.homepage = 'http://www.digitalruby.com/introducing-drcolorpicker-ios/'
 s.license  = 'MIT'
 s.author = 'jjxtra'
 s.source = {
 :git => 'https://github.com/jjxtra/DRColorPicker.git',
-:tag => '1.0'
+:tag => '1.0.1'
 }
 s.platform = :ios, '6.0'
 s.source_files =  'DRColorPickerExample/DRColorPicker/'
