@@ -130,6 +130,7 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 @property (nonatomic, strong) UILabel* rgbLabel;
 @property (nonatomic, strong) UITextField* rgbTextField;
 @property (nonatomic, strong) UIView* colorPreviewView;
+@property (nonatomic, weak) UIView* focusView;
 
 @end
 
@@ -430,21 +431,34 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 	}
 }
 
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[super touchesEnded:touches withEvent:event];
+	
+	self.focusView = nil;
+}
+
 - (void) handleTouchEvent:(CGPoint)position
 {
-	if (CGRectContainsPoint(self.hueImage.frame,position))
+	if (self.focusView == self.hueImage || (self.focusView == nil && CGRectContainsPoint(self.hueImage.frame,position)))
     {
-        [self setColorBubblePosition:position];
-		[self updateHueWithMovement:position];
+		if (CGRectContainsPoint(self.hueImage.frame,position))
+		{
+			self.focusView = self.hueImage;
+			[self setColorBubblePosition:position];
+			[self updateHueWithMovement:position];
+		}
 	}
-    else if (CGRectContainsPoint(self.brightnessView.frame, position))
+    else if (self.focusView == self.brightnessView || (self.focusView == nil && CGRectContainsPoint(self.brightnessView.frame, position)))
     {
+		self.focusView = self.brightnessView;
         self.brightnessIndicator.center = CGPointMake(position.x, self.brightnessView.center.y);
 		[self updateBrightnessWithMovement:position];
 	}
-    else if (CGRectContainsPoint(self.saturationView.frame, position))
+    else if (self.focusView == self.saturationView || (self.focusView == nil && CGRectContainsPoint(self.saturationView.frame, position)))
     {
-        self.saturationIndicator.center = CGPointMake(position.x, self.brightnessView.center.y);
+		self.focusView = self.saturationView;
+        self.saturationIndicator.center = CGPointMake(position.x, self.saturationView.center.y);
         [self updateSaturationWithMovement:position];
     }
 }
