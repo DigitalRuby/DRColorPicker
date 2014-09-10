@@ -442,12 +442,11 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 {
 	if (self.focusView == self.hueImage || (self.focusView == nil && CGRectContainsPoint(self.hueImage.frame,position)))
     {
-		if (CGRectContainsPoint(self.hueImage.frame,position))
-		{
-			self.focusView = self.hueImage;
-			[self setColorBubblePosition:position];
-			[self updateHueWithMovement:position];
-		}
+		position.x = MIN(MAX(0.0f, position.x), CGRectGetMaxX(self.hueImage.frame));
+		position.y = MIN(MAX(0.0f, position.y), CGRectGetMaxY(self.hueImage.frame));
+		self.focusView = self.hueImage;
+		[self setColorBubblePosition:position];
+		[self updateHueWithMovement:position];
 	}
     else if (self.focusView == self.brightnessView || (self.focusView == nil && CGRectContainsPoint(self.brightnessView.frame, position)))
     {
