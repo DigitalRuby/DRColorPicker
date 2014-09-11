@@ -438,6 +438,13 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 	self.focusView = nil;
 }
 
+- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+
+    self.focusView = nil;
+}
+
 - (void) handleTouchEvent:(CGPoint)position
 {
 	if (self.focusView == self.hueImage || (self.focusView == nil && CGRectContainsPoint(self.hueImage.frame,position)))
