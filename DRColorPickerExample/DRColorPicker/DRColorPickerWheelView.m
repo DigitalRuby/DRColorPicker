@@ -449,20 +449,24 @@ CGFloat const DRColorPickerWheelViewCrossHairshWidthAndHeight = 38.0f;
 {
 	if (self.focusView == self.hueImage || (self.focusView == nil && CGRectContainsPoint(self.hueImage.frame,position)))
     {
-		position.x = MIN(MAX(0.0f, position.x), CGRectGetMaxX(self.hueImage.frame));
-		position.y = MIN(MAX(0.0f, position.y), CGRectGetMaxY(self.hueImage.frame));
+		position.x = MIN(MAX(CGRectGetMinX(self.hueImage.frame), position.x), CGRectGetMaxX(self.hueImage.frame) - 1);
+		position.y = MIN(MAX(CGRectGetMinY(self.hueImage.frame), position.y), CGRectGetMaxY(self.hueImage.frame) - 1);
 		self.focusView = self.hueImage;
 		[self setColorBubblePosition:position];
 		[self updateHueWithMovement:position];
 	}
     else if (self.focusView == self.brightnessView || (self.focusView == nil && CGRectContainsPoint(self.brightnessView.frame, position)))
     {
+        position.x = MIN(MAX(CGRectGetMinX(self.brightnessView.frame), position.x), CGRectGetMaxX(self.brightnessView.frame) - 1);
+        position.y = MIN(MAX(CGRectGetMinY(self.brightnessView.frame), position.y), CGRectGetMaxY(self.brightnessView.frame) - 1);
 		self.focusView = self.brightnessView;
         self.brightnessIndicator.center = CGPointMake(position.x, self.brightnessView.center.y);
 		[self updateBrightnessWithMovement:position];
 	}
-    else if (self.focusView == self.saturationView || (self.focusView == nil && CGRectContainsPoint(self.saturationView.frame, position)))
+    else if (self.saturationView != nil && (self.focusView == self.saturationView || (self.focusView == nil && CGRectContainsPoint(self.saturationView.frame, position))))
     {
+        position.x = MIN(MAX(CGRectGetMinX(self.saturationView.frame), position.x), CGRectGetMaxX(self.saturationView.frame) - 1);
+        position.y = MIN(MAX(CGRectGetMinY(self.saturationView.frame), position.y), CGRectGetMaxY(self.saturationView.frame) - 1);
 		self.focusView = self.saturationView;
         self.saturationIndicator.center = CGPointMake(position.x, self.saturationView.center.y);
         [self updateSaturationWithMovement:position];
