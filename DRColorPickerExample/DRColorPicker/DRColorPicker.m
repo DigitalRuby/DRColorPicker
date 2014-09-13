@@ -41,6 +41,7 @@ BOOL DRColorPickerShowSaturationBar = NO;
 BOOL DRColorPickerHighlightLastHue = NO;
 BOOL DRColorPickerUsePNG = NO;
 CGFloat DRColorPickerJPEG2000Quality = 0.9f;
+NSString* DRColorPickerSharedAppGroup = nil;
 
 UIImage* DRColorPickerImage(NSString* subPath)
 {

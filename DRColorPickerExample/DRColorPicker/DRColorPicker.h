@@ -72,3 +72,7 @@ extern BOOL DRColorPickerUsePNG;
 // default is 0.9f, value of 0.0f to 1.0f, 1.0f is lossless but biggest file size and hence more disk space used - ignored if using PNG for texture
 // ***** once you have set this once for your app, do not ever change it as it will invalidate the hashes for all your textures (this would be bad) *****
 extern CGFloat DRColorPickerJPEG2000Quality;
+
+// new in iOS 8 is the concept of shared folders - if you want the color picker to use a shared folder accessible by apps
+// with the same group id, set this to your group id, otherwise leave nil to use the documents folder. Default is nil
+extern NSString* DRColorPickerSharedAppGroup;

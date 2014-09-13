@@ -3,8 +3,6 @@
 <body>
 <b>Digital Ruby, LLC Color Picker</b>
 
-version 1.0
-
 <p>I'm Jeff Johnson (@jjxtra) and I created DRColorPicker to use in my app <a href='http://bit.ly/YouDoodleApp'>You Doodle for iOS</a>.</p>
 
 <p>In order to give back to the community, I have open sourced this color picker under the MIT license.</p>

@@ -91,6 +91,9 @@
     // JPEG2000 quality default is 0.9, which really reduces the file size but still keeps a nice looking image
     // *** WARNING - NEVER CHANGE THIS ONCE YOU RELEASE YOUR APP!!! ***
     DRColorPickerJPEG2000Quality = 0.9f;
+
+    // set to your shared app group to use the same color picker settings with multiple apps and extensions
+    DRColorPickerSharedAppGroup = nil;
     // END OPTIONAL SETUP
 
     // create the color picker

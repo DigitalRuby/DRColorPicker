@@ -33,9 +33,11 @@
 #import "DRColorPicker.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
+#define DRCOLORPICKER_FOLDER_NAME @"DRColorPicker"
+
 @import ImageIO;
 
-#define DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_COPY_ONLY 0
+#define DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_GET_ONLY 0
 #define DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_MOVE_TO_FRONT 1
 #define DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_KEEP_IN_PLACE 2
 #define DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_DELETE 3
@@ -140,11 +142,45 @@ static CGFloat s_thumbnailSizePoints;
     return scaledImage;
 }
 
-- (NSString *) rootDirectory
+- (NSString*) documentsDirectory
 {
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* basePath = ([paths count] > 0 ? [paths objectAtIndex:0] : nil);
-    return [basePath stringByAppendingPathComponent:@"DRColorPicker"];
+    NSString* dir = ([paths count] > 0 ? [paths objectAtIndex:0] : nil);
+
+    return [dir stringByAppendingPathComponent:DRCOLORPICKER_FOLDER_NAME];
+}
+
+- (NSString*) sharedDirectory
+{
+    if (DRColorPickerSharedAppGroup.length != 0 && [NSFileManager instancesRespondToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)])
+    {
+        return [[[[NSFileManager alloc] init] containerURLForSecurityApplicationGroupIdentifier:DRColorPickerSharedAppGroup].path stringByAppendingPathComponent:DRCOLORPICKER_FOLDER_NAME];
+    }
+    return nil;
+}
+
+- (NSString*) rootDirectory
+{
+    static NSString* rootDirectory = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^
+    {
+        rootDirectory = [self sharedDirectory];
+        if (rootDirectory.length == 0)
+        {
+            rootDirectory = [self documentsDirectory];
+        }
+        NSFileManager* f = [[NSFileManager alloc] init];
+        if (![f fileExistsAtPath:rootDirectory])
+        {
+            NSError* error;
+            [f createDirectoryAtPath:rootDirectory withIntermediateDirectories:YES attributes:nil error:&error];
+        }
+
+        NSAssert(rootDirectory.length != 0 && [f fileExistsAtPath:rootDirectory], @"Failed to create root directory");
+    });
+
+    return rootDirectory;
 }
 
 - (id) init
@@ -154,23 +190,35 @@ static CGFloat s_thumbnailSizePoints;
     return nil;
 }
 
+- (void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (id) initAsSingleton
 {
     if ((self = [super init]) == nil) { return nil; }
 
     _cache = [[NSCache alloc] init];
-    _recentColors = [NSMutableArray array];
-    _favoriteColors = [NSMutableArray array];
+    [self migrateAndLoadColors];
 
-    NSFileManager* f = [[NSFileManager alloc] init];
-    [f createDirectoryAtPath:[self rootDirectory] withIntermediateDirectories:YES attributes:nil error:nil];
-    [self migrateColors];
-    [self loadColorSettings];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDeactivated:) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appActivated:) name:UIApplicationDidBecomeActiveNotification object:nil];
 
     return self;
 }
 
-- (void) migrateColors
+- (void) appDeactivated:(NSNotification*)n
+{
+    [self saveColorSettings];
+}
+
+- (void) appActivated:(NSNotification*)n
+{
+    [self loadColorSettings];
+}
+
+- (void) migrateColorsFromNeoColorPicker
 {
     NSString* fileName = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"neoFavoriteColors.data"];
     NSFileManager* fileManager = [[NSFileManager alloc] init];
@@ -178,16 +226,41 @@ static CGFloat s_thumbnailSizePoints;
     {
         NSMutableOrderedSet* set = [[NSMutableOrderedSet alloc] initWithOrderedSet:[NSKeyedUnarchiver unarchiveObjectWithFile:fileName]];
         [fileManager removeItemAtPath:fileName error:nil];
-
         self.disableSave = YES;
+        [self loadColorSettings];
         for (UIColor* color in set)
         {
             [self createColorWithColor:color list:DRColorPickerStoreListFavorites moveToFront:NO];
         }
         self.disableSave = NO;
-
         [self saveColorSettings];
     }
+}
+
+- (void) migrateColorsFromDocumentsDirectoryToSharedFolder
+{
+    if (DRColorPickerSharedAppGroup.length != 0)
+    {
+        NSString* sharedDir = [self sharedDirectory];
+        NSString* documentsDir = [self documentsDirectory];
+        NSFileManager* fileManager = [[NSFileManager alloc] init];
+        BOOL isDir = YES;
+        if (sharedDir.length != 0 && documentsDir.length != 0 && [fileManager fileExistsAtPath:documentsDir isDirectory:&isDir] && isDir)
+        {
+            // move all files from documents to shared folder
+            NSError* error = nil;
+            [fileManager removeItemAtPath:sharedDir error:nil];
+            [fileManager moveItemAtPath:documentsDir toPath:sharedDir error:&error];
+            NSAssert(error == nil, @"Error moving DRColorPicker data from %@ to %@", documentsDir, sharedDir);
+        }
+    }
+}
+
+- (void) migrateAndLoadColors
+{
+    [self migrateColorsFromNeoColorPicker];
+    [self migrateColorsFromDocumentsDirectoryToSharedFolder];
+    [self loadColorSettings];
 }
 
 - (NSString*) fullPathForColor:(DRColorPickerColor*)color
@@ -224,6 +297,8 @@ static CGFloat s_thumbnailSizePoints;
 {
     NSString* settingsFilePath = [[self rootDirectory] stringByAppendingPathComponent:DR_COLOR_PICKER_SETTINGS_FILE_NAME];
     NSData* settings = [NSData dataWithContentsOfFile:settingsFilePath];
+    _recentColors = [NSMutableArray array];
+    _favoriteColors = [NSMutableArray array];
 
     if (settings.length == 0)
     {
@@ -239,6 +314,7 @@ static CGFloat s_thumbnailSizePoints;
     }
 
     NSArray* recentColors = (NSArray*)json[@"Recent"];
+
     for (NSDictionary* d in recentColors)
     {
         [(NSMutableArray*)self.recentColors addObject:[[DRColorPickerColor alloc] initWithDictionary:d]];
@@ -291,8 +367,7 @@ static CGFloat s_thumbnailSizePoints;
 - (NSInteger) findColor:(DRColorPickerColor*)color inArray:(NSArray*)array alphaMatch:(BOOL*)alphaMatch
 {
     NSAssert(alphaMatch != NULL, @"Bool pointer must be allocated");
-
-    NSInteger nonAlphaIndex = NSNotFound;
+    *alphaMatch = NO;
 
     for (NSInteger i = 0; i < array.count; i++)
     {
@@ -305,15 +380,14 @@ static CGFloat s_thumbnailSizePoints;
                 *alphaMatch = YES;
                 return i;
             }
-            else if (nonAlphaIndex == NSNotFound)
+            else
             {
-                nonAlphaIndex = i;
+                return i;
             }
         }
     }
 
-    *alphaMatch = NO;
-    return nonAlphaIndex;
+    return NSNotFound;
 }
 
 - (DRColorPickerColor*) findAndReplaceColor:(DRColorPickerColor*)color array:(NSMutableArray*)array option:(NSInteger)option
@@ -380,7 +454,7 @@ static CGFloat s_thumbnailSizePoints;
         if (otherArray != array)
         {
             // try and re-use color from this array
-            foundColor = [self findAndReplaceColor:color array:otherArray option:DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_COPY_ONLY];
+            foundColor = [self findAndReplaceColor:color array:otherArray option:DR_COLOR_PICKER_FIND_AND_REPLACE_OPTION_GET_ONLY];
             if (foundColor != nil)
             {
                 break;
@@ -424,11 +498,11 @@ static CGFloat s_thumbnailSizePoints;
 {
     if (c.fullImageHash.length != 0)
     {
-        NSFileManager* f = [[NSFileManager alloc] init];
+        NSFileManager* fileManager = [[NSFileManager alloc] init];
         NSString* path = [self thumbnailPathForColor:c];
-        [f removeItemAtPath:path error:nil];
+        [fileManager removeItemAtPath:path error:nil];
         path = [self fullPathForColor:c];
-        [f removeItemAtPath:path error:nil];
+        [fileManager removeItemAtPath:path error:nil];
     }
 }
 
