@@ -152,7 +152,11 @@ static CGFloat s_thumbnailSizePoints;
 
 - (NSString*) sharedDirectory
 {
-    if (DRColorPickerSharedAppGroup.length != 0 && [NSFileManager instancesRespondToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)])
+    // if we have specified an app group and are on iOS 8 and have a container directory, return a shared url
+    // technically this call could work on iOS 7, but the user defaults initWithSuitName seems to be flaky, so
+    // I've blocked this from running on iOS 7 so if your app has other migration code, it will not migrate here
+    // until iOS 8 either
+    if (DRColorPickerSharedAppGroup.length != 0 && [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f && [NSFileManager instancesRespondToSelector:@selector(containerURLForSecurityApplicationGroupIdentifier:)])
     {
         return [[[[NSFileManager alloc] init] containerURLForSecurityApplicationGroupIdentifier:DRColorPickerSharedAppGroup].path stringByAppendingPathComponent:DRCOLORPICKER_FOLDER_NAME];
     }
@@ -218,6 +222,25 @@ static CGFloat s_thumbnailSizePoints;
     [self loadColorSettings];
 }
 
+- (void) migrateColorsFromDocumentsDirectoryToSharedFolder
+{
+    if (DRColorPickerSharedAppGroup.length != 0)
+    {
+        NSString* sharedDir = [self sharedDirectory];
+        NSString* documentsDir = [self documentsDirectory];
+        NSFileManager* fileManager = [[NSFileManager alloc] init];
+
+        // if we have both folders possible and the old directory does exist and the shared directory does not yet exist, perform the migration
+        if (sharedDir.length != 0 && documentsDir.length != 0 && [fileManager fileExistsAtPath:documentsDir] && ![fileManager fileExistsAtPath:sharedDir])
+        {
+            // move all files from old documents directory to the new shared directory
+            NSError* error = nil;
+            [fileManager moveItemAtPath:documentsDir toPath:sharedDir error:&error];
+            NSAssert(error == nil, @"Error moving DRColorPicker data from %@ to %@", documentsDir, sharedDir);
+        }
+    }
+}
+
 - (void) migrateColorsFromNeoColorPicker
 {
     NSString* fileName = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"neoFavoriteColors.data"];
@@ -237,29 +260,10 @@ static CGFloat s_thumbnailSizePoints;
     }
 }
 
-- (void) migrateColorsFromDocumentsDirectoryToSharedFolder
-{
-    if (DRColorPickerSharedAppGroup.length != 0)
-    {
-        NSString* sharedDir = [self sharedDirectory];
-        NSString* documentsDir = [self documentsDirectory];
-        NSFileManager* fileManager = [[NSFileManager alloc] init];
-        BOOL isDir = YES;
-        if (sharedDir.length != 0 && documentsDir.length != 0 && [fileManager fileExistsAtPath:documentsDir isDirectory:&isDir] && isDir)
-        {
-            // move all files from documents to shared folder
-            NSError* error = nil;
-            [fileManager removeItemAtPath:sharedDir error:nil];
-            [fileManager moveItemAtPath:documentsDir toPath:sharedDir error:&error];
-            NSAssert(error == nil, @"Error moving DRColorPicker data from %@ to %@", documentsDir, sharedDir);
-        }
-    }
-}
-
 - (void) migrateAndLoadColors
 {
-    [self migrateColorsFromNeoColorPicker];
     [self migrateColorsFromDocumentsDirectoryToSharedFolder];
+    [self migrateColorsFromNeoColorPicker];
     [self loadColorSettings];
 }
 
