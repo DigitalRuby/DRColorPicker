@@ -197,7 +197,7 @@
 
     DRColorPickerDismissBlock block = self.dismissBlock;
     self.dismissBlock = nil;
-    block(YES);
+    block(cancel);
 }
 
 - (void) cancelTapped:(id)sender
