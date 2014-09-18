@@ -373,6 +373,8 @@ static CGFloat s_thumbnailSizePoints;
     NSAssert(alphaMatch != NULL, @"Bool pointer must be allocated");
     *alphaMatch = NO;
 
+    NSInteger lastNonAlphaMatch = NSNotFound;
+
     for (NSInteger i = 0; i < array.count; i++)
     {
         DRColorPickerColor* c = (DRColorPickerColor*)array[i];
@@ -384,14 +386,14 @@ static CGFloat s_thumbnailSizePoints;
                 *alphaMatch = YES;
                 return i;
             }
-            else
+            else if (lastNonAlphaMatch == NSNotFound)
             {
-                return i;
+                lastNonAlphaMatch = i;
             }
         }
     }
 
-    return NSNotFound;
+    return lastNonAlphaMatch;
 }
 
 - (DRColorPickerColor*) findAndReplaceColor:(DRColorPickerColor*)color array:(NSMutableArray*)array option:(NSInteger)option
@@ -532,7 +534,10 @@ static CGFloat s_thumbnailSizePoints;
 
 - (DRColorPickerColor*) createColorWithImage:(DRColorPickerColor*)color list:(DRColorPickerStoreList)list moveToFront:(BOOL)moveToFront
 {
-    NSAssert(color.image != nil && color.thumbnailImage != nil, @"Image is required");
+    if (color.image == nil)
+    {
+        return nil;
+    }
 
     // get the first array to check
     NSMutableArray* array = (NSMutableArray*)[self colorsForList:list];

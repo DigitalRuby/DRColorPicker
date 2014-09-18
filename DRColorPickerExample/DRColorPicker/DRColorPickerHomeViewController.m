@@ -44,6 +44,8 @@
 @property (nonatomic, strong) DRColorPickerHomeView* homeView;
 @property (nonatomic, strong) UIBarButtonItem* favoritesButton;
 @property (nonatomic, strong) DRColorPickerColorView* recentColorView;
+@property (nonatomic, strong) UIBarButtonItem* cancelButton;
+@property (nonatomic, strong) UIBarButtonItem* doneButton;
 
 @end
 
@@ -53,13 +55,15 @@
 {
     // if we are in a popover, we can dealloc without done or cancel being called, in which case we pretend they tapped done - in
     // this way the behavior of tapping outside the popover acts as tapping the done button
-    if (self.callDoneTappedInDealloc && self.dismissBlock != nil && !self.cancel)
+    if (self.cancelButton.enabled && self.doneButton.enabled && self.callDoneTappedInDealloc && self.dismissBlock != nil && !self.cancel)
     {
         [[DRColorPickerStore sharedInstance] upsertColor:self.homeView.color list:DRColorPickerStoreListRecent moveToFront:YES];
         [self callDismissBlock:NO];
     }
-
-    [[DRColorPickerStore sharedInstance] saveColorSettings];
+    else
+    {
+        [[DRColorPickerStore sharedInstance] saveColorSettings];
+    }
 }
 
 - (id) init
@@ -85,8 +89,8 @@
 
     [self loadDefaultImages];
     [self createToolbar];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTapped:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    self.navigationItem.leftBarButtonItem = self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTapped:)];
+    self.navigationItem.rightBarButtonItem = self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
     self.navigationItem.title = DRCPTR(@"Colors");
     self.homeView.frame = self.view.bounds;
     [self.view addSubview:self.homeView];
@@ -195,8 +199,9 @@
         }
     }
 
-    DRColorPickerDismissBlock block = self.dismissBlock;
+    DRColorPickerDismissBlock block = [self.dismissBlock copy];
     self.dismissBlock = nil;
+    [[DRColorPickerStore sharedInstance] saveColorSettings];
     block(cancel);
 }
 
@@ -207,6 +212,8 @@
 
 - (void) doneTapped:(id)sender
 {
+    self.cancelButton.enabled = self.doneButton.enabled = NO;
+
     __weak DRColorPickerHomeViewController* weakSelf = self;
     __block UIActivityIndicatorView* p = [[UIActivityIndicatorView alloc] initWithFrame:self.navigationController.view.bounds];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15f * NSEC_PER_SEC)), dispatch_get_main_queue(),
