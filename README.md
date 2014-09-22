@@ -7,6 +7,8 @@
 
 <p>In order to give back to the community, I have open sourced this color picker under the MIT license.</p>
 
+<p>Are you using DRColorPicker in your own app? Send me an email (jjxtra AT gmail DOT com) and I'll post your app here under the "Apps Using" section.</p>
+
 <p>DRColorPicker is a world class color picker for iOS. Here is a list of the features:</p>
 
 <ul>
@@ -35,6 +37,14 @@
 </div>
 
 <div>Manual install: Add the DRColorPickerExample/DRColorPicker folder to your iOS project. The DRColorPickerExample folder contains a sample project with a view controller that will show you how to setup and display the color picker.</div>
+<br/>
+
+<div>Apps using DRColorPicker</div>
+<p>Are you using DRColorPicker in your own app? Send me an email (jjxtra AT gmail DOT com) and I'll post your app here under the "Apps Using" section.</p>
+<hr />
+
+
+<br/>
 <br/>
 <p>Screenshots:</p>
 <p style='font-size: 40px;'><b>iPad</b></p>
