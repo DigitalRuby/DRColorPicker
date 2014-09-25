@@ -160,7 +160,7 @@
     [self.standardColors.drCollectionViewLayout calculatePages];
     NSInteger colorCount = self.standardColors.drCollectionViewLayout.itemsPerPage;
     NSInteger hueCount = (colorCount / 3) * 2;
-    NSInteger grayCount = (colorCount / 3) - 1;
+    NSInteger grayCount = colorCount - hueCount;
     for (NSInteger i = 0; i < hueCount; i++)
     {
         UIColor* color = [UIColor colorWithHue:(CGFloat)i / (CGFloat)hueCount saturation:1.0 brightness:1.0 alpha:1.0];
