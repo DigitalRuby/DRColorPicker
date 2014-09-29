@@ -139,10 +139,17 @@
 
         if (color != nil)
         {
-            DRColorPickerGridViewCell* cell = [self dequeueReusableCellWithReuseIdentifier:@"DRColorPickerGridViewCell" forIndexPath:indexPath];
-            cell.colorView.color = color;
-            cell.colorView.highlighted = (self.highlightColor != nil && color == self.highlightColor);
-            return cell;
+            @try
+            {
+                DRColorPickerGridViewCell* cell = [self dequeueReusableCellWithReuseIdentifier:@"DRColorPickerGridViewCell" forIndexPath:indexPath];
+                cell.colorView.color = color;
+                cell.colorView.highlighted = (self.highlightColor != nil && color == self.highlightColor);
+                return cell;
+            }
+            @catch (...)
+            {
+                
+            }
         }
     }
 

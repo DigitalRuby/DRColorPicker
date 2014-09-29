@@ -160,7 +160,7 @@
     [self.standardColors.drCollectionViewLayout calculatePages];
     NSInteger colorCount = self.standardColors.drCollectionViewLayout.itemsPerPage;
     NSInteger hueCount = (colorCount / 3) * 2;
-    NSInteger grayCount = colorCount - hueCount;
+    NSInteger grayCount = colorCount - hueCount - 1; // -1 for transparency at the end
     for (NSInteger i = 0; i < hueCount; i++)
     {
         UIColor* color = [UIColor colorWithHue:(CGFloat)i / (CGFloat)hueCount saturation:1.0 brightness:1.0 alpha:1.0];
@@ -168,7 +168,7 @@
     }
     for (NSInteger i = 0; i < grayCount; i++)
     {
-        UIColor* color = [UIColor colorWithWhite:(CGFloat)i / (CGFloat)(grayCount - 1) alpha:1.0];
+        UIColor* color = [UIColor colorWithWhite:(CGFloat)i / (CGFloat)grayCount alpha:1.0];
         [colors addObject:[[DRColorPickerColor alloc] initWithColor:color]];
     }
     [colors addObject:[[DRColorPickerColor alloc] initWithColor:[UIColor clearColor]]];
