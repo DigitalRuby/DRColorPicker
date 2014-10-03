@@ -114,7 +114,14 @@
 - (void) deleteColor
 {
     [[DRColorPickerStore sharedInstance] deleteColor:self.colorViewLongPressed.color fromList:self.list];
-    [self.gridView deleteItemsAtIndexPaths:@[ self.colorViewIndexPath]];
+    @try
+    {
+        [self.gridView deleteItemsAtIndexPaths:@[ self.colorViewIndexPath]];
+    }
+    @catch (...)
+    {
+        [self.gridView reloadData];
+    }
 }
 
 - (void) moveColorToFront

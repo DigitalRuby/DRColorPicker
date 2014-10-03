@@ -224,6 +224,9 @@ static CGFloat s_thumbnailSizePoints;
 
 - (void) migrateColorsFromDocumentsDirectoryToSharedFolder
 {
+
+#if !TARGET_IS_EXTENSION
+
     if (DRColorPickerSharedAppGroup.length != 0)
     {
         NSString* sharedDir = [self sharedDirectory];
@@ -239,6 +242,9 @@ static CGFloat s_thumbnailSizePoints;
             NSAssert(error == nil, @"Error moving DRColorPicker data from %@ to %@", documentsDir, sharedDir);
         }
     }
+
+#endif
+
 }
 
 - (void) migrateColorsFromNeoColorPicker
@@ -632,7 +638,10 @@ static CGFloat s_thumbnailSizePoints;
 
     NSAssert(fileThumbnail != nil, @"Must call createColor first");
 
-    [self.cache setObject:fileThumbnail forKey:hash];
+    if (fileThumbnail != nil)
+    {
+        [self.cache setObject:fileThumbnail forKey:hash];
+    }
 
     return fileThumbnail;
 }
