@@ -161,15 +161,18 @@
 
 - (UICollectionViewLayoutAttributes*) internalLayoutForAttributesForCellAtIndexPath:(NSIndexPath*)indexPath
 {
+    UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+
+    if (_rows <= 0 || _columns <= 0)
+    {
+        return attr;
+    }
+
     NSInteger row = indexPath.row;
-
     CGRect bounds = self.collectionView.bounds;
-
     NSInteger columnPosition = row % _columns;
     NSInteger rowPosition = (row / _columns) % _rows;
     NSInteger itemPage = floorf(row / _itemsPerPage);
-
-    UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
 
     CGRect frame;
     frame.origin.x = itemPage * bounds.size.width + (columnPosition * _itemSize.width);

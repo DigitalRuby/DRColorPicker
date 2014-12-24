@@ -32,8 +32,7 @@
 #import "DRColorPickerViewController.h"
 
 // stands for Digital Ruby Color Picker Translation
-//#define DRCPTR(k, ...) [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(k, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"DRColorPicker" ofType:@"bundle"]], nil), ##__VA_ARGS__]
-#define DRCPTR(k, ...) [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(k, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[[NSBundle bundleForClass:DRColorPickerViewController.class] pathForResource:@"DRColorPicker" ofType:@"bundle"]], nil), ##__VA_ARGS__]
+NSString* DRCPTR(NSString* key, ...);
 
 UIImage* DRColorPickerImage(NSString* subPath);
 

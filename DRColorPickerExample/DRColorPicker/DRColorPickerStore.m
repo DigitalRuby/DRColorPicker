@@ -122,26 +122,6 @@ static CGFloat s_thumbnailSizePoints;
     return d;
 }
 
-+ (UIImage*) resizeImage:(UIImage*)image toSize:(CGFloat)size clipPath:(UIBezierPath*)clipPath
-{
-    if (image.size.width < size && image.size.height < size)
-    {
-        return image;
-    }
-
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(size, size), YES, 1.0f);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextSetInterpolationQuality(ctx, kCGInterpolationHigh);
-    if (clipPath != nil)
-    {
-        [clipPath addClip];
-    }
-    [image drawAtPoint:CGPointZero blendMode:kCGBlendModeCopy alpha:1.0f];
-    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;
-}
-
 - (NSString*) documentsDirectory
 {
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -371,7 +351,7 @@ static CGFloat s_thumbnailSizePoints;
 
 #endif
 
-    [jsonData writeToFile:settingsFilePath atomically:YES];
+    [jsonData writeToFile:settingsFilePath atomically:NO];
 }
 
 - (NSInteger) findColor:(DRColorPickerColor*)color inArray:(NSArray*)array alphaMatch:(BOOL*)alphaMatch
@@ -558,11 +538,11 @@ static CGFloat s_thumbnailSizePoints;
             if (DRColorPickerUsePNG)
             {
                 NSData* compressedData = UIImagePNGRepresentation(color.image);
-                [compressedData writeToFile:fullPath atomically:YES];
+                [compressedData writeToFile:fullPath atomically:NO];
             }
             else
             {
-                // since we have lossless compression, we have to re-compute the hash
+                // since we have lossy compression, we have to re-compute the hash
                 NSData* compressedData = [DRColorPickerStore convertToJPEG2000:color.image withQuality:DRColorPickerJPEG2000Quality];
                 UIImage* recomputeHashImage = [UIImage imageWithData:compressedData];
                 DRColorPickerColor* normalizedColor = [[DRColorPickerColor alloc] initWithImage:recomputeHashImage];
@@ -570,7 +550,7 @@ static CGFloat s_thumbnailSizePoints;
                 fullPath = [self fullPathForHash:color.fullImageHash];
                 if (![[[NSFileManager alloc] init] fileExistsAtPath:fullPath])
                 {
-                    [compressedData writeToFile:fullPath atomically:YES];
+                    [compressedData writeToFile:fullPath atomically:NO];
                 }
             }
 
@@ -579,7 +559,7 @@ static CGFloat s_thumbnailSizePoints;
             if (![[[NSFileManager alloc] init] fileExistsAtPath:thumbPath])
             {
                 NSData* pngData = UIImagePNGRepresentation(color.thumbnailImage);
-                [pngData writeToFile:thumbPath atomically:YES];
+                [pngData writeToFile:thumbPath atomically:NO];
             }
         }
     }
