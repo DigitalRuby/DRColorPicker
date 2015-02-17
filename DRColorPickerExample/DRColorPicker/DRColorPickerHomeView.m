@@ -78,6 +78,7 @@
     self.alphaSlider.minimumValue = 0.0f;
     self.alphaSlider.maximumValue = 1.0f;
     self.alphaSlider.value = 1.0f;
+    [self alphaSliderValueChanged:self.alphaSlider];
     [self.alphaSlider addTarget:self action:@selector(alphaSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self addSubview:self.alphaSlider];
 
@@ -236,6 +237,7 @@
     _color = color;
     self.alphaSlider.value = color.alpha;
     self.currentColorView.color = color;
+    [self alphaSliderValueChanged:self.alphaSlider];
 }
 
 - (void) setAddToFavoritesImage:(UIImage *)addToFavoritesImage

@@ -43,6 +43,27 @@ BOOL DRColorPickerUsePNG = NO;
 CGFloat DRColorPickerJPEG2000Quality = 0.9f;
 NSString* DRColorPickerSharedAppGroup = nil;
 
+NSString* DRCPTR(NSString* key, ...)
+{
+    NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString* result = NSLocalizedStringFromTableInBundle(key, @"DRColorPickerLocalizable", [NSBundle bundleWithPath:[resourcePath stringByAppendingPathComponent:@"DRColorPicker.bundle"]], nil);
+    if (result.length == 0)
+    {
+        NSString* fullPath = [resourcePath stringByAppendingPathComponent:@"../../DRColorPicker.bundle"];
+        NSBundle* bundle = [NSBundle bundleWithPath:fullPath];
+        result = NSLocalizedStringFromTableInBundle(key, @"DRColorPickerLocalizable", bundle, nil);
+    }
+
+    va_list ap;
+    va_start(ap, key);
+
+    result = [[NSString alloc] initWithFormat:result arguments:ap];
+
+    va_end(ap);
+
+    return result;
+}
+
 UIImage* DRColorPickerImage(NSString* subPath)
 {
     if (subPath.length == 0)
@@ -56,22 +77,42 @@ UIImage* DRColorPickerImage(NSString* subPath)
     ^{
         imageWithContentsOfFileCache = [[NSCache alloc] init];
     });
+
     NSString* fullPath = [@"DRColorPicker.bundle/" stringByAppendingString:subPath];
     UIImage* img = [UIImage imageNamed:fullPath];
     if (img == nil)
     {
-        NSBundle* b = [NSBundle bundleWithPath:[[NSBundle bundleForClass:DRColorPickerViewController.class] pathForResource:@"DRColorPicker" ofType:@"bundle"]];
-        fullPath = [[b.bundlePath stringByAppendingString:@"/"] stringByAppendingString:subPath];
+        fullPath = [@"../../DRColorPicker.bundle/" stringByAppendingString:subPath];
         img = [UIImage imageNamed:fullPath];
         if (img == nil)
         {
-            img = (UIImage*)[imageWithContentsOfFileCache objectForKey:subPath];
+            NSString* resourcePath = [[NSBundle mainBundle] resourcePath];
+            fullPath = [resourcePath stringByAppendingPathComponent:[@"DRColorPicker.bundle/" stringByAppendingString:subPath]];
+            img = [UIImage imageNamed:fullPath];
             if (img == nil)
             {
-                img = [UIImage imageWithContentsOfFile:fullPath];
-                if (img != nil)
+                fullPath = [resourcePath stringByAppendingPathComponent:[@"../../DRColorPicker.bundle/" stringByAppendingString:subPath]];
+                img = [UIImage imageNamed:fullPath];
+                if (img == nil)
                 {
-                    [imageWithContentsOfFileCache setObject:img forKey:subPath];
+                    NSString* lastPath = subPath.lastPathComponent;
+                    img = [UIImage imageNamed:lastPath];
+                    if (img == nil)
+                    {
+                        img = [UIImage imageNamed:[@"../../" stringByAppendingPathComponent:lastPath]];
+                        if (img == nil)
+                        {
+                            img = (UIImage*)[imageWithContentsOfFileCache objectForKey:subPath];
+                            if (img == nil)
+                            {
+                                img = [UIImage imageWithContentsOfFile:fullPath];
+                                if (img != nil)
+                                {
+                                    [imageWithContentsOfFileCache setObject:img forKey:subPath];
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
