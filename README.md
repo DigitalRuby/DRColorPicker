@@ -32,7 +32,7 @@
 <li>Modules enabled for the project (i.e. @import ...)</li>
 </ul>
 
-<div>Install via Cocoapods:<br/>
+<div>Install via CocoaPods:<br/>
 <pre><code>pod 'DRColorPicker'</code></pre>
 </div>
 
