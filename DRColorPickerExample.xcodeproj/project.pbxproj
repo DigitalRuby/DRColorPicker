@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F86F6B1D38126200E8F077 /* DRColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F4A1D38126200E8F077 /* DRColorPicker.m */; };
+		22F86F6C1D38126200E8F077 /* DRColorPicker+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F4C1D38126200E8F077 /* DRColorPicker+UIColor.m */; };
+		22F86F6D1D38126200E8F077 /* DRColorPickerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F4E1D38126200E8F077 /* DRColorPickerBaseViewController.m */; };
+		22F86F6E1D38126200E8F077 /* DRColorPickerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F501D38126200E8F077 /* DRColorPickerColor.m */; };
+		22F86F6F1D38126200E8F077 /* DRColorPickerColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F521D38126200E8F077 /* DRColorPickerColorView.m */; };
+		22F86F701D38126200E8F077 /* DRColorPickerGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F541D38126200E8F077 /* DRColorPickerGridView.m */; };
+		22F86F711D38126200E8F077 /* DRColorPickerGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F561D38126200E8F077 /* DRColorPickerGridViewCell.m */; };
+		22F86F721D38126200E8F077 /* DRColorPickerGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F581D38126200E8F077 /* DRColorPickerGridViewController.m */; };
+		22F86F731D38126200E8F077 /* DRColorPickerHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F5A1D38126200E8F077 /* DRColorPickerHomeView.m */; };
+		22F86F741D38126200E8F077 /* DRColorPickerHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F5C1D38126200E8F077 /* DRColorPickerHomeViewController.m */; };
+		22F86F751D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F5E1D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.m */; };
+		22F86F761D38126200E8F077 /* DRColorPickerHueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F601D38126200E8F077 /* DRColorPickerHueView.m */; };
+		22F86F771D38126200E8F077 /* DRColorPickerHueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F621D38126200E8F077 /* DRColorPickerHueViewController.m */; };
+		22F86F781D38126200E8F077 /* DRColorPickerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F641D38126200E8F077 /* DRColorPickerStore.m */; };
+		22F86F791D38126200E8F077 /* DRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F661D38126200E8F077 /* DRColorPickerViewController.m */; };
+		22F86F7A1D38126200E8F077 /* DRColorPickerWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F681D38126200E8F077 /* DRColorPickerWheelView.m */; };
+		22F86F7B1D38126200E8F077 /* DRColorPickerWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F86F6A1D38126200E8F077 /* DRColorPickerWheelViewController.m */; };
+		22F86F7D1D38129500E8F077 /* DRColorPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22F86F7C1D38129500E8F077 /* DRColorPicker.bundle */; };
 		EC15157119B4E097001D6263 /* DRColorPicker.podspec in Resources */ = {isa = PBXBuildFile; fileRef = EC15156F19B4E097001D6263 /* DRColorPicker.podspec */; };
 		EC15157219B4E097001D6263 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EC15157019B4E097001D6263 /* LICENSE */; };
 		EC6057C419B161790000FC23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057C319B161790000FC23 /* main.m */; };
@@ -15,24 +33,6 @@
 		EC6057CD19B161790000FC23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6057CB19B161790000FC23 /* Main.storyboard */; };
 		EC6057CF19B161790000FC23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6057CE19B161790000FC23 /* Images.xcassets */; };
 		EC6057DB19B1617A0000FC23 /* DRColorPickerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057DA19B1617A0000FC23 /* DRColorPickerExampleTests.m */; };
-		EC60580919B161960000FC23 /* DRColorPicker+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057E619B161960000FC23 /* DRColorPicker+UIColor.m */; };
-		EC60580A19B161960000FC23 /* DRColorPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EC6057E719B161960000FC23 /* DRColorPicker.bundle */; };
-		EC60580B19B161960000FC23 /* DRColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057E919B161960000FC23 /* DRColorPicker.m */; };
-		EC60580C19B161960000FC23 /* DRColorPickerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057EB19B161960000FC23 /* DRColorPickerBaseViewController.m */; };
-		EC60580D19B161960000FC23 /* DRColorPickerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057ED19B161960000FC23 /* DRColorPickerColor.m */; };
-		EC60580E19B161960000FC23 /* DRColorPickerColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057EF19B161960000FC23 /* DRColorPickerColorView.m */; };
-		EC60580F19B161960000FC23 /* DRColorPickerGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057F119B161960000FC23 /* DRColorPickerGridView.m */; };
-		EC60581019B161960000FC23 /* DRColorPickerGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057F319B161960000FC23 /* DRColorPickerGridViewCell.m */; };
-		EC60581119B161960000FC23 /* DRColorPickerGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057F519B161960000FC23 /* DRColorPickerGridViewController.m */; };
-		EC60581219B161960000FC23 /* DRColorPickerHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057F719B161960000FC23 /* DRColorPickerHomeView.m */; };
-		EC60581319B161960000FC23 /* DRColorPickerHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057F919B161960000FC23 /* DRColorPickerHomeViewController.m */; };
-		EC60581419B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057FB19B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.m */; };
-		EC60581519B161960000FC23 /* DRColorPickerHueView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057FD19B161960000FC23 /* DRColorPickerHueView.m */; };
-		EC60581619B161960000FC23 /* DRColorPickerHueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6057FF19B161960000FC23 /* DRColorPickerHueViewController.m */; };
-		EC60581719B161960000FC23 /* DRColorPickerStore.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580119B161960000FC23 /* DRColorPickerStore.m */; };
-		EC60581819B161960000FC23 /* DRColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580319B161960000FC23 /* DRColorPickerViewController.m */; };
-		EC60581919B161960000FC23 /* DRColorPickerWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580519B161960000FC23 /* DRColorPickerWheelView.m */; };
-		EC60581A19B161960000FC23 /* DRColorPickerWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */; };
 		EC60589D19B16F830000FC23 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC60589C19B16F830000FC23 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +47,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22F86F491D38126200E8F077 /* DRColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPicker.h; path = Pod/Classes/DRColorPicker.h; sourceTree = SOURCE_ROOT; };
+		22F86F4A1D38126200E8F077 /* DRColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPicker.m; path = Pod/Classes/DRColorPicker.m; sourceTree = SOURCE_ROOT; };
+		22F86F4B1D38126200E8F077 /* DRColorPicker+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DRColorPicker+UIColor.h"; path = "Pod/Classes/DRColorPicker+UIColor.h"; sourceTree = SOURCE_ROOT; };
+		22F86F4C1D38126200E8F077 /* DRColorPicker+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DRColorPicker+UIColor.m"; path = "Pod/Classes/DRColorPicker+UIColor.m"; sourceTree = SOURCE_ROOT; };
+		22F86F4D1D38126200E8F077 /* DRColorPickerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerBaseViewController.h; path = Pod/Classes/DRColorPickerBaseViewController.h; sourceTree = SOURCE_ROOT; };
+		22F86F4E1D38126200E8F077 /* DRColorPickerBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerBaseViewController.m; path = Pod/Classes/DRColorPickerBaseViewController.m; sourceTree = SOURCE_ROOT; };
+		22F86F4F1D38126200E8F077 /* DRColorPickerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerColor.h; path = Pod/Classes/DRColorPickerColor.h; sourceTree = SOURCE_ROOT; };
+		22F86F501D38126200E8F077 /* DRColorPickerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerColor.m; path = Pod/Classes/DRColorPickerColor.m; sourceTree = SOURCE_ROOT; };
+		22F86F511D38126200E8F077 /* DRColorPickerColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerColorView.h; path = Pod/Classes/DRColorPickerColorView.h; sourceTree = SOURCE_ROOT; };
+		22F86F521D38126200E8F077 /* DRColorPickerColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerColorView.m; path = Pod/Classes/DRColorPickerColorView.m; sourceTree = SOURCE_ROOT; };
+		22F86F531D38126200E8F077 /* DRColorPickerGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerGridView.h; path = Pod/Classes/DRColorPickerGridView.h; sourceTree = SOURCE_ROOT; };
+		22F86F541D38126200E8F077 /* DRColorPickerGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerGridView.m; path = Pod/Classes/DRColorPickerGridView.m; sourceTree = SOURCE_ROOT; };
+		22F86F551D38126200E8F077 /* DRColorPickerGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerGridViewCell.h; path = Pod/Classes/DRColorPickerGridViewCell.h; sourceTree = SOURCE_ROOT; };
+		22F86F561D38126200E8F077 /* DRColorPickerGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerGridViewCell.m; path = Pod/Classes/DRColorPickerGridViewCell.m; sourceTree = SOURCE_ROOT; };
+		22F86F571D38126200E8F077 /* DRColorPickerGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerGridViewController.h; path = Pod/Classes/DRColorPickerGridViewController.h; sourceTree = SOURCE_ROOT; };
+		22F86F581D38126200E8F077 /* DRColorPickerGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerGridViewController.m; path = Pod/Classes/DRColorPickerGridViewController.m; sourceTree = SOURCE_ROOT; };
+		22F86F591D38126200E8F077 /* DRColorPickerHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerHomeView.h; path = Pod/Classes/DRColorPickerHomeView.h; sourceTree = SOURCE_ROOT; };
+		22F86F5A1D38126200E8F077 /* DRColorPickerHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerHomeView.m; path = Pod/Classes/DRColorPickerHomeView.m; sourceTree = SOURCE_ROOT; };
+		22F86F5B1D38126200E8F077 /* DRColorPickerHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerHomeViewController.h; path = Pod/Classes/DRColorPickerHomeViewController.h; sourceTree = SOURCE_ROOT; };
+		22F86F5C1D38126200E8F077 /* DRColorPickerHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerHomeViewController.m; path = Pod/Classes/DRColorPickerHomeViewController.m; sourceTree = SOURCE_ROOT; };
+		22F86F5D1D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerHorizontalCollectionViewLayout.h; path = Pod/Classes/DRColorPickerHorizontalCollectionViewLayout.h; sourceTree = SOURCE_ROOT; };
+		22F86F5E1D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerHorizontalCollectionViewLayout.m; path = Pod/Classes/DRColorPickerHorizontalCollectionViewLayout.m; sourceTree = SOURCE_ROOT; };
+		22F86F5F1D38126200E8F077 /* DRColorPickerHueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerHueView.h; path = Pod/Classes/DRColorPickerHueView.h; sourceTree = SOURCE_ROOT; };
+		22F86F601D38126200E8F077 /* DRColorPickerHueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerHueView.m; path = Pod/Classes/DRColorPickerHueView.m; sourceTree = SOURCE_ROOT; };
+		22F86F611D38126200E8F077 /* DRColorPickerHueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerHueViewController.h; path = Pod/Classes/DRColorPickerHueViewController.h; sourceTree = SOURCE_ROOT; };
+		22F86F621D38126200E8F077 /* DRColorPickerHueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerHueViewController.m; path = Pod/Classes/DRColorPickerHueViewController.m; sourceTree = SOURCE_ROOT; };
+		22F86F631D38126200E8F077 /* DRColorPickerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerStore.h; path = Pod/Classes/DRColorPickerStore.h; sourceTree = SOURCE_ROOT; };
+		22F86F641D38126200E8F077 /* DRColorPickerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerStore.m; path = Pod/Classes/DRColorPickerStore.m; sourceTree = SOURCE_ROOT; };
+		22F86F651D38126200E8F077 /* DRColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerViewController.h; path = Pod/Classes/DRColorPickerViewController.h; sourceTree = SOURCE_ROOT; };
+		22F86F661D38126200E8F077 /* DRColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerViewController.m; path = Pod/Classes/DRColorPickerViewController.m; sourceTree = SOURCE_ROOT; };
+		22F86F671D38126200E8F077 /* DRColorPickerWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerWheelView.h; path = Pod/Classes/DRColorPickerWheelView.h; sourceTree = SOURCE_ROOT; };
+		22F86F681D38126200E8F077 /* DRColorPickerWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerWheelView.m; path = Pod/Classes/DRColorPickerWheelView.m; sourceTree = SOURCE_ROOT; };
+		22F86F691D38126200E8F077 /* DRColorPickerWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRColorPickerWheelViewController.h; path = Pod/Classes/DRColorPickerWheelViewController.h; sourceTree = SOURCE_ROOT; };
+		22F86F6A1D38126200E8F077 /* DRColorPickerWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRColorPickerWheelViewController.m; path = Pod/Classes/DRColorPickerWheelViewController.m; sourceTree = SOURCE_ROOT; };
+		22F86F7C1D38129500E8F077 /* DRColorPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DRColorPicker.bundle; sourceTree = "<group>"; };
 		EC15156F19B4E097001D6263 /* DRColorPicker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DRColorPicker.podspec; sourceTree = SOURCE_ROOT; };
 		EC15157019B4E097001D6263 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		EC6057BE19B161790000FC23 /* DRColorPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRColorPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,41 +96,6 @@
 		EC6057D419B1617A0000FC23 /* DRColorPickerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRColorPickerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6057D919B1617A0000FC23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6057DA19B1617A0000FC23 /* DRColorPickerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerExampleTests.m; sourceTree = "<group>"; };
-		EC6057E519B161960000FC23 /* DRColorPicker+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DRColorPicker+UIColor.h"; sourceTree = "<group>"; };
-		EC6057E619B161960000FC23 /* DRColorPicker+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DRColorPicker+UIColor.m"; sourceTree = "<group>"; };
-		EC6057E719B161960000FC23 /* DRColorPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DRColorPicker.bundle; sourceTree = "<group>"; };
-		EC6057E819B161960000FC23 /* DRColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPicker.h; sourceTree = "<group>"; };
-		EC6057E919B161960000FC23 /* DRColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPicker.m; sourceTree = "<group>"; };
-		EC6057EA19B161960000FC23 /* DRColorPickerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerBaseViewController.h; sourceTree = "<group>"; };
-		EC6057EB19B161960000FC23 /* DRColorPickerBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerBaseViewController.m; sourceTree = "<group>"; };
-		EC6057EC19B161960000FC23 /* DRColorPickerColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerColor.h; sourceTree = "<group>"; };
-		EC6057ED19B161960000FC23 /* DRColorPickerColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerColor.m; sourceTree = "<group>"; };
-		EC6057EE19B161960000FC23 /* DRColorPickerColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerColorView.h; sourceTree = "<group>"; };
-		EC6057EF19B161960000FC23 /* DRColorPickerColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerColorView.m; sourceTree = "<group>"; };
-		EC6057F019B161960000FC23 /* DRColorPickerGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerGridView.h; sourceTree = "<group>"; };
-		EC6057F119B161960000FC23 /* DRColorPickerGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerGridView.m; sourceTree = "<group>"; };
-		EC6057F219B161960000FC23 /* DRColorPickerGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerGridViewCell.h; sourceTree = "<group>"; };
-		EC6057F319B161960000FC23 /* DRColorPickerGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerGridViewCell.m; sourceTree = "<group>"; };
-		EC6057F419B161960000FC23 /* DRColorPickerGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerGridViewController.h; sourceTree = "<group>"; };
-		EC6057F519B161960000FC23 /* DRColorPickerGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerGridViewController.m; sourceTree = "<group>"; };
-		EC6057F619B161960000FC23 /* DRColorPickerHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHomeView.h; sourceTree = "<group>"; };
-		EC6057F719B161960000FC23 /* DRColorPickerHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHomeView.m; sourceTree = "<group>"; };
-		EC6057F819B161960000FC23 /* DRColorPickerHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHomeViewController.h; sourceTree = "<group>"; };
-		EC6057F919B161960000FC23 /* DRColorPickerHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHomeViewController.m; sourceTree = "<group>"; };
-		EC6057FA19B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHorizontalCollectionViewLayout.h; sourceTree = "<group>"; };
-		EC6057FB19B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHorizontalCollectionViewLayout.m; sourceTree = "<group>"; };
-		EC6057FC19B161960000FC23 /* DRColorPickerHueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHueView.h; sourceTree = "<group>"; };
-		EC6057FD19B161960000FC23 /* DRColorPickerHueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHueView.m; sourceTree = "<group>"; };
-		EC6057FE19B161960000FC23 /* DRColorPickerHueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerHueViewController.h; sourceTree = "<group>"; };
-		EC6057FF19B161960000FC23 /* DRColorPickerHueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerHueViewController.m; sourceTree = "<group>"; };
-		EC60580019B161960000FC23 /* DRColorPickerStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerStore.h; sourceTree = "<group>"; };
-		EC60580119B161960000FC23 /* DRColorPickerStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerStore.m; sourceTree = "<group>"; };
-		EC60580219B161960000FC23 /* DRColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerViewController.h; sourceTree = "<group>"; };
-		EC60580319B161960000FC23 /* DRColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerViewController.m; sourceTree = "<group>"; };
-		EC60580419B161960000FC23 /* DRColorPickerWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelView.h; sourceTree = "<group>"; };
-		EC60580519B161960000FC23 /* DRColorPickerWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelView.m; sourceTree = "<group>"; };
-		EC60580619B161960000FC23 /* DRColorPickerWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRColorPickerWheelViewController.h; sourceTree = "<group>"; };
-		EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRColorPickerWheelViewController.m; sourceTree = "<group>"; };
 		EC60589C19B16F830000FC23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EC6058A119B3908D0000FC23 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		EC6058A219B390A00000FC23 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -154,7 +154,40 @@
 		EC6057C019B161790000FC23 /* DRColorPickerExample */ = {
 			isa = PBXGroup;
 			children = (
-				EC6057E419B161960000FC23 /* DRColorPicker */,
+				22F86F491D38126200E8F077 /* DRColorPicker.h */,
+				22F86F4A1D38126200E8F077 /* DRColorPicker.m */,
+				22F86F4B1D38126200E8F077 /* DRColorPicker+UIColor.h */,
+				22F86F4C1D38126200E8F077 /* DRColorPicker+UIColor.m */,
+				22F86F4D1D38126200E8F077 /* DRColorPickerBaseViewController.h */,
+				22F86F4E1D38126200E8F077 /* DRColorPickerBaseViewController.m */,
+				22F86F4F1D38126200E8F077 /* DRColorPickerColor.h */,
+				22F86F501D38126200E8F077 /* DRColorPickerColor.m */,
+				22F86F511D38126200E8F077 /* DRColorPickerColorView.h */,
+				22F86F521D38126200E8F077 /* DRColorPickerColorView.m */,
+				22F86F531D38126200E8F077 /* DRColorPickerGridView.h */,
+				22F86F541D38126200E8F077 /* DRColorPickerGridView.m */,
+				22F86F551D38126200E8F077 /* DRColorPickerGridViewCell.h */,
+				22F86F561D38126200E8F077 /* DRColorPickerGridViewCell.m */,
+				22F86F571D38126200E8F077 /* DRColorPickerGridViewController.h */,
+				22F86F581D38126200E8F077 /* DRColorPickerGridViewController.m */,
+				22F86F591D38126200E8F077 /* DRColorPickerHomeView.h */,
+				22F86F5A1D38126200E8F077 /* DRColorPickerHomeView.m */,
+				22F86F5B1D38126200E8F077 /* DRColorPickerHomeViewController.h */,
+				22F86F5C1D38126200E8F077 /* DRColorPickerHomeViewController.m */,
+				22F86F5D1D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.h */,
+				22F86F5E1D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.m */,
+				22F86F5F1D38126200E8F077 /* DRColorPickerHueView.h */,
+				22F86F601D38126200E8F077 /* DRColorPickerHueView.m */,
+				22F86F611D38126200E8F077 /* DRColorPickerHueViewController.h */,
+				22F86F621D38126200E8F077 /* DRColorPickerHueViewController.m */,
+				22F86F631D38126200E8F077 /* DRColorPickerStore.h */,
+				22F86F641D38126200E8F077 /* DRColorPickerStore.m */,
+				22F86F651D38126200E8F077 /* DRColorPickerViewController.h */,
+				22F86F661D38126200E8F077 /* DRColorPickerViewController.m */,
+				22F86F671D38126200E8F077 /* DRColorPickerWheelView.h */,
+				22F86F681D38126200E8F077 /* DRColorPickerWheelView.m */,
+				22F86F691D38126200E8F077 /* DRColorPickerWheelViewController.h */,
+				22F86F6A1D38126200E8F077 /* DRColorPickerWheelViewController.m */,
 				EC15157019B4E097001D6263 /* LICENSE */,
 				EC15156F19B4E097001D6263 /* DRColorPicker.podspec */,
 				EC60589C19B16F830000FC23 /* README.md */,
@@ -172,6 +205,7 @@
 		EC6057C119B161790000FC23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22F86F7C1D38129500E8F077 /* DRColorPicker.bundle */,
 				EC6057C219B161790000FC23 /* Info.plist */,
 				EC6057C319B161790000FC23 /* main.m */,
 			);
@@ -193,56 +227,6 @@
 				EC6057D919B1617A0000FC23 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EC6057E419B161960000FC23 /* DRColorPicker */ = {
-			isa = PBXGroup;
-			children = (
-				EC6057E519B161960000FC23 /* DRColorPicker+UIColor.h */,
-				EC6057E619B161960000FC23 /* DRColorPicker+UIColor.m */,
-				EC6057E719B161960000FC23 /* DRColorPicker.bundle */,
-				EC6057E819B161960000FC23 /* DRColorPicker.h */,
-				EC6057E919B161960000FC23 /* DRColorPicker.m */,
-				EC6057EA19B161960000FC23 /* DRColorPickerBaseViewController.h */,
-				EC6057EB19B161960000FC23 /* DRColorPickerBaseViewController.m */,
-				EC6057EC19B161960000FC23 /* DRColorPickerColor.h */,
-				EC6057ED19B161960000FC23 /* DRColorPickerColor.m */,
-				EC6057EE19B161960000FC23 /* DRColorPickerColorView.h */,
-				EC6057EF19B161960000FC23 /* DRColorPickerColorView.m */,
-				EC6057F019B161960000FC23 /* DRColorPickerGridView.h */,
-				EC6057F119B161960000FC23 /* DRColorPickerGridView.m */,
-				EC6057F219B161960000FC23 /* DRColorPickerGridViewCell.h */,
-				EC6057F319B161960000FC23 /* DRColorPickerGridViewCell.m */,
-				EC6057F419B161960000FC23 /* DRColorPickerGridViewController.h */,
-				EC6057F519B161960000FC23 /* DRColorPickerGridViewController.m */,
-				EC6057F619B161960000FC23 /* DRColorPickerHomeView.h */,
-				EC6057F719B161960000FC23 /* DRColorPickerHomeView.m */,
-				EC6057F819B161960000FC23 /* DRColorPickerHomeViewController.h */,
-				EC6057F919B161960000FC23 /* DRColorPickerHomeViewController.m */,
-				EC6057FA19B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.h */,
-				EC6057FB19B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.m */,
-				EC6057FC19B161960000FC23 /* DRColorPickerHueView.h */,
-				EC6057FD19B161960000FC23 /* DRColorPickerHueView.m */,
-				EC6057FE19B161960000FC23 /* DRColorPickerHueViewController.h */,
-				EC6057FF19B161960000FC23 /* DRColorPickerHueViewController.m */,
-				EC60580019B161960000FC23 /* DRColorPickerStore.h */,
-				EC60580119B161960000FC23 /* DRColorPickerStore.m */,
-				EC60580219B161960000FC23 /* DRColorPickerViewController.h */,
-				EC60580319B161960000FC23 /* DRColorPickerViewController.m */,
-				EC60580419B161960000FC23 /* DRColorPickerWheelView.h */,
-				EC60580519B161960000FC23 /* DRColorPickerWheelView.m */,
-				EC60580619B161960000FC23 /* DRColorPickerWheelViewController.h */,
-				EC60580719B161960000FC23 /* DRColorPickerWheelViewController.m */,
-				EC60580819B161960000FC23 /* Strings */,
-			);
-			path = DRColorPicker;
-			sourceTree = "<group>";
-		};
-		EC60580819B161960000FC23 /* Strings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,7 +312,7 @@
 				EC15157219B4E097001D6263 /* LICENSE in Resources */,
 				EC60589D19B16F830000FC23 /* README.md in Resources */,
 				EC15157119B4E097001D6263 /* DRColorPicker.podspec in Resources */,
-				EC60580A19B161960000FC23 /* DRColorPicker.bundle in Resources */,
+				22F86F7D1D38129500E8F077 /* DRColorPicker.bundle in Resources */,
 				EC6057CD19B161790000FC23 /* Main.storyboard in Resources */,
 				EC6057CF19B161790000FC23 /* Images.xcassets in Resources */,
 			);
@@ -348,26 +332,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC60581819B161960000FC23 /* DRColorPickerViewController.m in Sources */,
-				EC60581019B161960000FC23 /* DRColorPickerGridViewCell.m in Sources */,
-				EC60581219B161960000FC23 /* DRColorPickerHomeView.m in Sources */,
-				EC60581319B161960000FC23 /* DRColorPickerHomeViewController.m in Sources */,
-				EC60580E19B161960000FC23 /* DRColorPickerColorView.m in Sources */,
-				EC60580D19B161960000FC23 /* DRColorPickerColor.m in Sources */,
+				22F86F791D38126200E8F077 /* DRColorPickerViewController.m in Sources */,
+				22F86F711D38126200E8F077 /* DRColorPickerGridViewCell.m in Sources */,
+				22F86F731D38126200E8F077 /* DRColorPickerHomeView.m in Sources */,
+				22F86F741D38126200E8F077 /* DRColorPickerHomeViewController.m in Sources */,
+				22F86F6F1D38126200E8F077 /* DRColorPickerColorView.m in Sources */,
+				22F86F6E1D38126200E8F077 /* DRColorPickerColor.m in Sources */,
 				EC6057CA19B161790000FC23 /* ViewController.m in Sources */,
-				EC60581519B161960000FC23 /* DRColorPickerHueView.m in Sources */,
-				EC60580C19B161960000FC23 /* DRColorPickerBaseViewController.m in Sources */,
-				EC60581719B161960000FC23 /* DRColorPickerStore.m in Sources */,
-				EC60580B19B161960000FC23 /* DRColorPicker.m in Sources */,
-				EC60581419B161960000FC23 /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */,
-				EC60581A19B161960000FC23 /* DRColorPickerWheelViewController.m in Sources */,
-				EC60580919B161960000FC23 /* DRColorPicker+UIColor.m in Sources */,
+				22F86F761D38126200E8F077 /* DRColorPickerHueView.m in Sources */,
+				22F86F6D1D38126200E8F077 /* DRColorPickerBaseViewController.m in Sources */,
+				22F86F781D38126200E8F077 /* DRColorPickerStore.m in Sources */,
+				22F86F6B1D38126200E8F077 /* DRColorPicker.m in Sources */,
+				22F86F751D38126200E8F077 /* DRColorPickerHorizontalCollectionViewLayout.m in Sources */,
+				22F86F7B1D38126200E8F077 /* DRColorPickerWheelViewController.m in Sources */,
 				EC6057C719B161790000FC23 /* AppDelegate.m in Sources */,
-				EC60581119B161960000FC23 /* DRColorPickerGridViewController.m in Sources */,
+				22F86F6C1D38126200E8F077 /* DRColorPicker+UIColor.m in Sources */,
+				22F86F721D38126200E8F077 /* DRColorPickerGridViewController.m in Sources */,
 				EC6057C419B161790000FC23 /* main.m in Sources */,
-				EC60581619B161960000FC23 /* DRColorPickerHueViewController.m in Sources */,
-				EC60580F19B161960000FC23 /* DRColorPickerGridView.m in Sources */,
-				EC60581919B161960000FC23 /* DRColorPickerWheelView.m in Sources */,
+				22F86F771D38126200E8F077 /* DRColorPickerHueViewController.m in Sources */,
+				22F86F701D38126200E8F077 /* DRColorPickerGridView.m in Sources */,
+				22F86F7A1D38126200E8F077 /* DRColorPickerWheelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
