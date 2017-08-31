@@ -40,10 +40,13 @@
 <br/>
 
 <div>Apps using DRColorPicker</div>
+<hr/>
+<strong>Living Flame</strong>
+Website: <a href='https://livingflame.wordpress.com'>https://livingflame.wordpress.com</a><br/>
+Download: <a href='https://itunes.apple.com/us/app/living-flame/id1251818535?mt=8'>https://itunes.apple.com/us/app/living-flame/id1251818535?mt=8</a><br/>
+<hr/>
 <p>Are you using DRColorPicker in your own app? Send me an email (jjxtra AT gmail DOT com) and I'll post your app here under the "Apps Using" section.</p>
 <hr />
-
-
 <br/>
 <br/>
 <p>Screenshots:</p>
