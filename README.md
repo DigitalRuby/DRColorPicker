@@ -41,9 +41,18 @@
 
 <div>Apps using DRColorPicker</div>
 <hr/>
-<strong>Living Flame</strong>
+<strong>You Doodle</strong>
+Website: <a href='http://youdoodle.net'>http://youdoodle.net</a><br/>
+Download: <a href='http://bit.ly/YouDoodleApp'>http://bit.ly/YouDoodleApp</a><br/>
+<br/>
+<strong>Living Flame</strong><br/>
 Website: <a href='https://livingflame.wordpress.com'>https://livingflame.wordpress.com</a><br/>
 Download: <a href='https://itunes.apple.com/us/app/living-flame/id1251818535?mt=8'>https://itunes.apple.com/us/app/living-flame/id1251818535?mt=8</a><br/>
+<br/>
+<strong>Universally</strong><br/>
+Website: <a href='https://www.facebook.com/MusicallyMediaPlayer/'>https://www.facebook.com/MusicallyMediaPlayer/</a><br/>
+Download: <a href='https://itunes.apple.com/us/app/universally-media-fitness/id1147036298?ls=1&mt=8'>https://itunes.apple.com/us/app/universally-media-fitness/id1147036298?ls=1&mt=8</a><br/>
+<br/>
 <hr/>
 <p>Are you using DRColorPicker in your own app? Send me an email (jjxtra AT gmail DOT com) and I'll post your app here under the "Apps Using" section.</p>
 <hr />
