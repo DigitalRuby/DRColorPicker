@@ -41,7 +41,7 @@
 
 <div>Apps using DRColorPicker</div>
 <hr/>
-<strong>You Doodle</strong>
+<strong>You Doodle</strong><br/>
 Website: <a href='http://youdoodle.net'>http://youdoodle.net</a><br/>
 Download: <a href='http://bit.ly/YouDoodleApp'>http://bit.ly/YouDoodleApp</a><br/>
 <br/>
