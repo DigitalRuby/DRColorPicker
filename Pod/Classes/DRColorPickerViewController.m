@@ -67,6 +67,24 @@
     return (DRColorPickerHomeViewController*)self.viewControllers[0];
 }
 
+- (void)setCustomColors:(NSArray<DRColorPickerColor *> *)customColors
+{
+    _customColors = customColors;
+    self.rootViewController.customColors = customColors;
+}
+
+- (void)setCustomUIColors:(NSArray<UIColor *> *)customUIColors
+{
+    _customUIColors = customUIColors;
+    NSMutableArray *result = [NSMutableArray new];
+
+    for (UIColor *color in customUIColors) {
+        [result addObject:[[DRColorPickerColor alloc] initWithColor:color]];
+    }
+
+    self.customColors = result;
+}
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;

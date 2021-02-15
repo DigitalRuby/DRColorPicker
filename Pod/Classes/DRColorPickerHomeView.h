@@ -35,9 +35,10 @@
 @interface DRColorPickerHomeView : UIView
 
 @property (nonatomic, strong) DRColorPickerColor* color;
-@property (nonatomic, strong) DRColorPickerGridView* standardColors;
+@property (nonatomic, strong) DRColorPickerGridView* standardColorsGridView;
 @property (nonatomic, strong) UIImage* addToFavoritesImage;
 @property (nonatomic, weak) UIView* favoritesView;
 @property (nonatomic, assign) BOOL showAlphaSlider;
+@property (nonatomic, strong) NSArray<DRColorPickerColor*>* customColors;
 
 @end

@@ -37,5 +37,9 @@
 + (DRColorPickerViewController*) newColorPickerWithColor:(DRColorPickerColor*)color;
 
 @property (nonatomic, strong, readonly) DRColorPickerHomeViewController* rootViewController;
+// Custom colors for Home View
+@property (nonatomic, strong) NSArray<DRColorPickerColor*>* customColors;
+// Convenience property for customColors property
+@property (nonatomic, strong) NSArray<UIColor*>* customUIColors;
 
 @end

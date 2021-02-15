@@ -72,7 +72,7 @@
 
     __weak DRColorPickerHomeViewController* weakSelf = self;
     self.homeView = [[DRColorPickerHomeView alloc] init];
-    self.homeView.standardColors.colorSelectedBlock = ^(DRColorPickerColor* color)
+    self.homeView.standardColorsGridView.colorSelectedBlock = ^(DRColorPickerColor* color)
     {
         DRColorPickerHomeViewController* strongSelf = weakSelf;
         strongSelf.color = color;
@@ -336,6 +336,12 @@
 - (void) setAddToFavoritesImage:(UIImage *)addToFavoritesImage
 {
     self.homeView.addToFavoritesImage = addToFavoritesImage;
+}
+
+- (void)setCustomColors:(NSArray<DRColorPickerColor *> *)customColors
+{
+    _customColors = customColors;
+    self.homeView.customColors = customColors;
 }
 
 - (UIImage*) addToFavoritesImage

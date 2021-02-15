@@ -58,5 +58,7 @@ typedef void (^DRColorPickerDismissBlock)(BOOL cancel);
 @property (nonatomic, strong) UIImage* hueImage;
 @property (nonatomic, strong) UIImage* wheelImage;
 @property (nonatomic, strong) UIImage* importImage;
+// Custom colors for Home View
+@property (nonatomic, strong) NSArray<DRColorPickerColor*>* customColors;
 
 @end
