@@ -42,4 +42,7 @@
 // Convenience property for customColors property
 @property (nonatomic, strong) NSArray<UIColor*>* customUIColors;
 
+@property (nonatomic, strong) NSString *cancelButtonTitle;
+@property (nonatomic, strong) NSString *doneButtonTitle;
+
 @end

@@ -85,6 +85,18 @@
     self.customColors = result;
 }
 
+- (void)setCancelButtonTitle:(NSString *)cancelButtonTitle
+{
+    _cancelButtonTitle = cancelButtonTitle;
+    self.rootViewController.cancelButtonTitle = cancelButtonTitle;
+}
+
+- (void)setDoneButtonTitle:(NSString *)doneButtonTitle
+{
+    _doneButtonTitle = doneButtonTitle;
+    self.rootViewController.doneButtonTitle = doneButtonTitle;
+}
+
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;

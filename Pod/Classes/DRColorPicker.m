@@ -42,6 +42,7 @@ BOOL DRColorPickerHighlightLastHue = NO;
 BOOL DRColorPickerUsePNG = NO;
 CGFloat DRColorPickerJPEG2000Quality = 0.9f;
 NSString* DRColorPickerSharedAppGroup = nil;
+NSString* DRColorPickerLocalizedLanguageCode = nil;
 
 NSBundle* DRColorPickerBundle() {
     NSBundle *bundle = [NSBundle bundleForClass:DRColorPickerColor.class];
@@ -52,6 +53,23 @@ NSBundle* DRColorPickerBundle() {
 NSString* DRCPTR(NSString* key, ...)
 {
     NSBundle *bundle = DRColorPickerBundle();
+
+    if (DRColorPickerLocalizedLanguageCode) {
+        NSString *path = [bundle pathForResource:DRColorPickerLocalizedLanguageCode ofType:@"lproj"];
+
+        if (path) {
+            // https://stackoverflow.com/a/7403767/3004003
+            NSBundle *langBundle = [NSBundle bundleWithPath:path];
+            NSString *stringsPath = [langBundle pathsForResourcesOfType:@"strings" inDirectory:nil].firstObject;
+            NSData *stringsData = [NSData dataWithContentsOfFile:stringsPath];
+            id plist = [NSPropertyListSerialization propertyListWithData:stringsData options:NSPropertyListImmutable format:nil error:nil];
+
+            if ([plist isKindOfClass:NSDictionary.class]) {
+                return plist[key];
+            }
+        }
+    }
+
     NSString* result = NSLocalizedStringFromTableInBundle(key, @"DRColorPickerLocalizable", bundle, nil);
     va_list ap;
     va_start(ap, key);

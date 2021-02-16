@@ -75,3 +75,7 @@ extern CGFloat DRColorPickerJPEG2000Quality;
 // new in iOS 8 is the concept of shared folders - if you want the color picker to use a shared folder accessible by apps
 // with the same group id, set this to your group id, otherwise leave nil to use the documents folder. Default is nil
 extern NSString* DRColorPickerSharedAppGroup;
+
+// language code/name for lproj bundle,
+// if given bundle not found, fall back to auto localization
+extern NSString* DRColorPickerLocalizedLanguageCode;

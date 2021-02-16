@@ -89,8 +89,15 @@
 
     [self loadDefaultImages];
     [self createToolbar];
-    self.navigationItem.leftBarButtonItem = self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTapped:)];
-    self.navigationItem.rightBarButtonItem = self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+
+    if (!self.cancelButtonTitle) {
+        self.navigationItem.leftBarButtonItem = self.cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTapped:)];
+    }
+
+    if (!self.doneButtonTitle) {
+        self.navigationItem.rightBarButtonItem = self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTapped:)];
+    }
+
     self.navigationItem.title = DRCPTR(@"Colors");
     self.homeView.frame = self.view.bounds;
     [self.view addSubview:self.homeView];
@@ -336,6 +343,18 @@
 - (void) setAddToFavoritesImage:(UIImage *)addToFavoritesImage
 {
     self.homeView.addToFavoritesImage = addToFavoritesImage;
+}
+
+- (void)setCancelButtonTitle:(NSString *)cancelButtonTitle
+{
+    _cancelButtonTitle = cancelButtonTitle;
+    self.navigationItem.leftBarButtonItem = self.cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelTapped:)];
+}
+
+- (void)setDoneButtonTitle:(NSString *)doneButtonTitle
+{
+    _doneButtonTitle = doneButtonTitle;
+    self.navigationItem.rightBarButtonItem = self.doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStyleDone target:self action:@selector(doneTapped:)];
 }
 
 - (void)setCustomColors:(NSArray<DRColorPickerColor *> *)customColors
