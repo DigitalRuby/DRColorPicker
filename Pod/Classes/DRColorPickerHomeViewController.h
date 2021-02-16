@@ -59,4 +59,10 @@ typedef void (^DRColorPickerDismissBlock)(BOOL cancel);
 @property (nonatomic, strong) UIImage* wheelImage;
 @property (nonatomic, strong) UIImage* importImage;
 
+@property (nonatomic, strong) NSString *cancelButtonTitle;
+@property (nonatomic, strong) NSString *doneButtonTitle;
+
+// Custom colors for Home View
+@property (nonatomic, strong) NSArray<DRColorPickerColor*>* customColors;
+
 @end

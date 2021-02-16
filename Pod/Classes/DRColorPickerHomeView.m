@@ -53,8 +53,8 @@
 
     _showAlphaSlider = YES;
 
-    self.standardColors = [[DRColorPickerGridView alloc] init];
-    [self addSubview:self.standardColors];
+    self.standardColorsGridView = [[DRColorPickerGridView alloc] init];
+    [self addSubview:self.standardColorsGridView];
 
     self.alphaLabel = [[UILabel alloc] init];
     self.alphaLabel.text = DRCPTR(@"Opacity", 1.0f);
@@ -111,7 +111,7 @@
 
 - (void) doLayout
 {
-    if (self.standardColors == nil)
+    if (self.standardColorsGridView == nil)
     {
         return;
     }
@@ -150,16 +150,20 @@
     }
 
     CGFloat standardColorsY = CGRectGetMaxY(self.topDivider.frame);
-    self.standardColors.frame = CGRectMake(0.0f, standardColorsY, self.bounds.size.width, self.bounds.size.height - standardColorsY);
+    self.standardColorsGridView.frame = CGRectMake(0.0f, standardColorsY, self.bounds.size.width, self.bounds.size.height - standardColorsY);
 
-    [self createStandardColors];
+    if (self.customColors) {
+        self.standardColorsGridView.colors = self.customColors;
+    } else {
+        [self createStandardColors];
+    }
 }
 
 - (void) createStandardColors
 {
     NSMutableArray* colors = [NSMutableArray array];
-    [self.standardColors.drCollectionViewLayout calculatePages];
-    NSInteger colorCount = self.standardColors.drCollectionViewLayout.itemsPerPage;
+    [self.standardColorsGridView.drCollectionViewLayout calculatePages];
+    NSInteger colorCount = self.standardColorsGridView.drCollectionViewLayout.itemsPerPage;
     NSInteger hueCount = (colorCount / 3) * 2;
     NSInteger grayCount = colorCount - hueCount - 1; // -1 for transparency at the end
     for (NSInteger i = 0; i < hueCount; i++)
@@ -173,7 +177,7 @@
         [colors addObject:[[DRColorPickerColor alloc] initWithColor:color]];
     }
     [colors addObject:[[DRColorPickerColor alloc] initWithColor:[UIColor clearColor]]];
-    self.standardColors.colors = colors;
+    self.standardColorsGridView.colors = colors;
 }
 
 - (void) animationDidStop:(CAAnimation*)anim finished:(BOOL)flag
